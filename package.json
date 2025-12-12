@@ -3,6 +3,10 @@
   "private": false,
   "version": "1.0.0",
   "type": "module",
+  "files": [
+    "dist",
+    "src"
+  ],
   "types": "./src/index.d.ts",
   "scripts": {
     "dev": "vite",
