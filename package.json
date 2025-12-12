@@ -3,11 +3,19 @@
   "private": false,
   "version": "1.0.0",
   "type": "module",
+  "main": "./dist/hanukkiah-widget.umd.cjs",
+  "module": "./dist/hanukkiah-widget.js",
+  "exports": {
+    ".": {
+      "import": "./dist/hanukkiah-widget.js",
+      "require": "./dist/hanukkiah-widget.umd.cjs"
+    }
+  },
   "files": [
     "dist",
     "src"
   ],
-  "types": "./src/index.d.ts",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

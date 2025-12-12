@@ -8,7 +8,7 @@ export default defineConfig({
     lib: {
       entry: 'src/index.js',
       name: 'HanukkiahWidget',
-      fileName: (format) => `hanukkiah-widget.${format}.js`,
+      fileName: 'hanukkiah-widget',
     },
     rollupOptions: {
       external: ['react', 'react-dom'],
