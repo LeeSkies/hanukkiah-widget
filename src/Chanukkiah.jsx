@@ -357,9 +357,27 @@ export default function Chanukkiah() {
             50% { transform: scale(1.05); opacity: 0.8; }
             100% { transform: scale(1); opacity: 1; }
           }
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-15px); }
+        .header-text {
+          font-family: "Cinzel Decorative", "Segoe UI", sans-serif;
+          font-size: 5rem;
+          font-weight: 900;
+          margin: 0;
+          background: linear-gradient(to bottom, #ffd700, #ffaa00, #ffd700);
+          background-size: 200% auto;
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          color: transparent; /* Fallback */
+          filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.6));
+          letter-spacing: 4px;
+          animation: celebrate 4s ease-in-out infinite;
+          white-space: nowrap;
+          transform-style: preserve-3d;
+          padding: 10px; /* Prevent clipping */
+        }
+        @keyframes celebrate {
+          0%, 100% { transform: translateY(0px) scale(1); filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.6)); }
+          50% { transform: translateY(-15px) scale(1.05); filter: drop-shadow(0 0 35px rgba(255, 215, 0, 0.8)); }
         }
         @keyframes pulse {
           0%, 100% { opacity: 0.8; transform: scale(1); }
@@ -531,27 +549,15 @@ export default function Chanukkiah() {
           {/* Happy Hanukkah Header */}
           <div style={{
             textAlign: 'center',
-            marginBottom: '40px', // Increased spacing
-            marginTop: '-60px',   // Pull it up further
+            marginBottom: '60px', // Increased spacing further
+            marginTop: '-60px',
             zIndex: 50,
             cursor: 'default',
             userSelect: 'none',
-            opacity: isOpen ? 1 : 0, // Ensure hidden when minimized
+            opacity: isOpen ? 1 : 0,
             transition: 'opacity 0.3s',
           }}>
-            <h1 style={{
-              fontFamily: '"Cinzel Decorative", "Segoe UI", sans-serif',
-              fontSize: '3.5rem',
-              fontWeight: '900',
-              margin: 0,
-              background: 'linear-gradient(to bottom, #ffd700, #ffaa00)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              filter: 'drop-shadow(0 0 15px rgba(255, 215, 0, 0.4))',
-              letterSpacing: '2px',
-              animation: 'float 6s ease-in-out infinite',
-              whiteSpace: 'nowrap',
-            }}>
+            <h1 className="header-text">
               {isHebrew ? 'חג חנוכה שמח!' : 'HAPPY HANUKKAH!'}
             </h1>
           </div>

@@ -1,11 +1,11 @@
 import Ce, { useState as _, useRef as ue, useEffect as se } from "react";
 var le = { exports: {} }, ne = {};
-var ge;
+var me;
 function je() {
-  if (ge) return ne;
-  ge = 1;
-  var k = Symbol.for("react.transitional.element"), g = Symbol.for("react.fragment");
-  function E(T, b, y) {
+  if (me) return ne;
+  me = 1;
+  var E = Symbol.for("react.transitional.element"), m = Symbol.for("react.fragment");
+  function k(T, b, y) {
     var f = null;
     if (y !== void 0 && (f = "" + y), b.key !== void 0 && (f = "" + b.key), "key" in b) {
       y = {};
@@ -13,20 +13,20 @@ function je() {
         A !== "key" && (y[A] = b[A]);
     } else y = b;
     return b = y.ref, {
-      $$typeof: k,
+      $$typeof: E,
       type: T,
       key: f,
       ref: b !== void 0 ? b : null,
       props: y
     };
   }
-  return ne.Fragment = g, ne.jsx = E, ne.jsxs = E, ne;
+  return ne.Fragment = m, ne.jsx = k, ne.jsxs = k, ne;
 }
 var ae = {};
 var ve;
 function Se() {
   return ve || (ve = 1, process.env.NODE_ENV !== "production" && (function() {
-    function k(e) {
+    function E(e) {
       if (e == null) return null;
       if (typeof e == "function")
         return e.$$typeof === G ? null : e.displayName || e.name || null;
@@ -55,26 +55,26 @@ function Se() {
             return e.displayName || "Context";
           case J:
             return (e._context.displayName || "Context") + ".Consumer";
-          case Y:
+          case W:
             var n = e.render;
             return e = e.displayName, e || (e = n.displayName || n.name || "", e = e !== "" ? "ForwardRef(" + e + ")" : "ForwardRef"), e;
           case $:
-            return n = e.displayName || null, n !== null ? n : k(e.type) || "Memo";
+            return n = e.displayName || null, n !== null ? n : E(e.type) || "Memo";
           case S:
             n = e._payload, e = e._init;
             try {
-              return k(e(n));
+              return E(e(n));
             } catch {
             }
         }
       return null;
     }
-    function g(e) {
+    function m(e) {
       return "" + e;
     }
-    function E(e) {
+    function k(e) {
       try {
-        g(e);
+        m(e);
         var n = !1;
       } catch {
         n = !0;
@@ -86,7 +86,7 @@ function Se() {
           n,
           "The provided key is an unsupported type %s. This value must be coerced to a string before using it here.",
           s
-        ), g(e);
+        ), m(e);
       }
     }
     function T(e) {
@@ -94,7 +94,7 @@ function Se() {
       if (typeof e == "object" && e !== null && e.$$typeof === S)
         return "<...>";
       try {
-        var n = k(e);
+        var n = E(e);
         return n ? "<" + n + ">" : "<...>";
       } catch {
         return "<...>";
@@ -127,12 +127,12 @@ function Se() {
       });
     }
     function C() {
-      var e = k(this.type);
+      var e = E(this.type);
       return Q[e] || (Q[e] = !0, console.error(
         "Accessing element.ref was removed in React 19. ref is now a regular prop. It will be removed from the JSX Element type in a future release."
       )), e = this.props.ref, e !== void 0 ? e : null;
     }
-    function D(e, n, o, s, l, t) {
+    function Y(e, n, o, s, l, t) {
       var a = o.ref;
       return e = {
         $$typeof: ee,
@@ -179,7 +179,7 @@ function Se() {
             );
         else z(a);
       if (X.call(n, "key")) {
-        a = k(e);
+        a = E(e);
         var i = Object.keys(n).filter(function(p) {
           return p !== "key";
         });
@@ -196,7 +196,7 @@ React keys must be passed directly to JSX without using spread:
           a
         ), r[a + s] = !0);
       }
-      if (a = null, o !== void 0 && (E(o), a = "" + o), f(n) && (E(n.key), a = "" + n.key), "key" in n) {
+      if (a = null, o !== void 0 && (k(o), a = "" + o), f(n) && (k(n.key), a = "" + n.key), "key" in n) {
         o = {};
         for (var u in n)
           u !== "key" && (o[u] = n[u]);
@@ -204,7 +204,7 @@ React keys must be passed directly to JSX without using spread:
       return a && A(
         o,
         typeof e == "function" ? e.displayName || e.name || "Unknown" : e
-      ), D(
+      ), Y(
         e,
         a,
         o,
@@ -219,7 +219,7 @@ React keys must be passed directly to JSX without using spread:
     function j(e) {
       return typeof e == "object" && e !== null && e.$$typeof === ee;
     }
-    var N = Ce, ee = Symbol.for("react.transitional.element"), oe = Symbol.for("react.portal"), h = Symbol.for("react.fragment"), re = Symbol.for("react.strict_mode"), ie = Symbol.for("react.profiler"), J = Symbol.for("react.consumer"), L = Symbol.for("react.context"), Y = Symbol.for("react.forward_ref"), Z = Symbol.for("react.suspense"), te = Symbol.for("react.suspense_list"), $ = Symbol.for("react.memo"), S = Symbol.for("react.lazy"), w = Symbol.for("react.activity"), G = Symbol.for("react.client.reference"), P = N.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, X = Object.prototype.hasOwnProperty, U = Array.isArray, B = console.createTask ? console.createTask : function() {
+    var N = Ce, ee = Symbol.for("react.transitional.element"), oe = Symbol.for("react.portal"), h = Symbol.for("react.fragment"), re = Symbol.for("react.strict_mode"), ie = Symbol.for("react.profiler"), J = Symbol.for("react.consumer"), L = Symbol.for("react.context"), W = Symbol.for("react.forward_ref"), Z = Symbol.for("react.suspense"), te = Symbol.for("react.suspense_list"), $ = Symbol.for("react.memo"), S = Symbol.for("react.lazy"), w = Symbol.for("react.activity"), G = Symbol.for("react.client.reference"), P = N.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, X = Object.prototype.hasOwnProperty, U = Array.isArray, B = console.createTask ? console.createTask : function() {
       return null;
     };
     N = {
@@ -259,9 +259,9 @@ function Pe() {
   return xe || (xe = 1, process.env.NODE_ENV === "production" ? le.exports = je() : le.exports = Se()), le.exports;
 }
 var c = Pe(), de = {};
-(function k(g, E, T, b) {
-  var y = !!(g.Worker && g.Blob && g.Promise && g.OffscreenCanvas && g.OffscreenCanvasRenderingContext2D && g.HTMLCanvasElement && g.HTMLCanvasElement.prototype.transferControlToOffscreen && g.URL && g.URL.createObjectURL), f = typeof Path2D == "function" && typeof DOMMatrix == "function", A = (function() {
-    if (!g.OffscreenCanvas)
+(function E(m, k, T, b) {
+  var y = !!(m.Worker && m.Blob && m.Promise && m.OffscreenCanvas && m.OffscreenCanvasRenderingContext2D && m.HTMLCanvasElement && m.HTMLCanvasElement.prototype.transferControlToOffscreen && m.URL && m.URL.createObjectURL), f = typeof Path2D == "function" && typeof DOMMatrix == "function", A = (function() {
+    if (!m.OffscreenCanvas)
       return !1;
     try {
       var r = new OffscreenCanvas(1, 1), e = r.getContext("2d");
@@ -275,8 +275,8 @@ var c = Pe(), de = {};
   })();
   function C() {
   }
-  function D(r) {
-    var e = E.exports.Promise, n = e !== void 0 ? e : g.Promise;
+  function Y(r) {
+    var e = k.exports.Promise, n = e !== void 0 ? e : m.Promise;
     return typeof n == "function" ? new n(r) : (r(C, C), null);
   }
   var x = /* @__PURE__ */ (function(r, e) {
@@ -320,9 +320,9 @@ var c = Pe(), de = {};
         if (e)
           return l(a, null), e;
         var p = Math.random().toString(36).slice(2);
-        return e = D(function(m) {
+        return e = Y(function(g) {
           function v(M) {
-            M.data.callback === p && (delete n[p], s.removeEventListener("message", v), e = null, x.clear(), u(), m());
+            M.data.callback === p && (delete n[p], s.removeEventListener("message", v), e = null, x.clear(), u(), g());
           }
           s.addEventListener("message", v), l(a, p), n[p] = v.bind(null, { data: { callback: p } });
         }), e;
@@ -338,7 +338,7 @@ var c = Pe(), de = {};
       if (!T && y) {
         var s = [
           "var CONFETTI, SIZE = {}, module = {};",
-          "(" + k.toString() + ")(this, module, true, SIZE);",
+          "(" + E.toString() + ")(this, module, true, SIZE);",
           "onmessage = function(msg) {",
           "  if (msg.data.options) {",
           "    CONFETTI(msg.data.options).then(function () {",
@@ -416,9 +416,9 @@ var c = Pe(), de = {};
     return parseInt(r, 16);
   }
   function L(r) {
-    return r.map(Y);
+    return r.map(W);
   }
-  function Y(r) {
+  function W(r) {
     var e = String(r).replace(/[^0-9a-f]/gi, "");
     return e.length < 6 && (e = e[0] + e[0] + e[1] + e[1] + e[2] + e[2]), {
       r: J(e.substring(0, 2)),
@@ -485,7 +485,7 @@ var c = Pe(), de = {};
         Math.PI / 10 * e.wobble
       ));
     else if (e.shape.type === "bitmap") {
-      var a = Math.PI / 10 * e.wobble, i = Math.abs(l - o) * 0.1, u = Math.abs(t - s) * 0.1, p = e.shape.bitmap.width * e.scalar, m = e.shape.bitmap.height * e.scalar, v = new DOMMatrix([
+      var a = Math.PI / 10 * e.wobble, i = Math.abs(l - o) * 0.1, u = Math.abs(t - s) * 0.1, p = e.shape.bitmap.width * e.scalar, g = e.shape.bitmap.height * e.scalar, v = new DOMMatrix([
         Math.cos(a) * i,
         Math.sin(a) * i,
         -Math.sin(a) * u,
@@ -497,30 +497,30 @@ var c = Pe(), de = {};
       var M = r.createPattern(x.transform(e.shape.bitmap), "no-repeat");
       M.setTransform(v), r.globalAlpha = 1 - n, r.fillStyle = M, r.fillRect(
         e.x - p / 2,
-        e.y - m / 2,
+        e.y - g / 2,
         p,
-        m
+        g
       ), r.globalAlpha = 1;
     } else if (e.shape === "circle")
       r.ellipse ? r.ellipse(e.x, e.y, Math.abs(l - o) * e.ovalScalar, Math.abs(t - s) * e.ovalScalar, Math.PI / 10 * e.wobble, 0, 2 * Math.PI) : w(r, e.x, e.y, Math.abs(l - o) * e.ovalScalar, Math.abs(t - s) * e.ovalScalar, Math.PI / 10 * e.wobble, 0, 2 * Math.PI);
     else if (e.shape === "star")
-      for (var d = Math.PI / 2 * 3, R = 4 * e.scalar, O = 8 * e.scalar, I = e.x, W = e.y, q = 5, F = Math.PI / q; q--; )
-        I = e.x + Math.cos(d) * O, W = e.y + Math.sin(d) * O, r.lineTo(I, W), d += F, I = e.x + Math.cos(d) * R, W = e.y + Math.sin(d) * R, r.lineTo(I, W), d += F;
+      for (var d = Math.PI / 2 * 3, R = 4 * e.scalar, O = 8 * e.scalar, I = e.x, D = e.y, q = 5, F = Math.PI / q; q--; )
+        I = e.x + Math.cos(d) * O, D = e.y + Math.sin(d) * O, r.lineTo(I, D), d += F, I = e.x + Math.cos(d) * R, D = e.y + Math.sin(d) * R, r.lineTo(I, D), d += F;
     else
       r.moveTo(Math.floor(e.x), Math.floor(e.y)), r.lineTo(Math.floor(e.wobbleX), Math.floor(s)), r.lineTo(Math.floor(l), Math.floor(t)), r.lineTo(Math.floor(o), Math.floor(e.wobbleY));
     return r.closePath(), r.fill(), e.tick < e.totalTicks;
   }
   function X(r, e, n, o, s) {
-    var l = e.slice(), t = r.getContext("2d"), a, i, u = D(function(p) {
-      function m() {
+    var l = e.slice(), t = r.getContext("2d"), a, i, u = Y(function(p) {
+      function g() {
         a = i = null, t.clearRect(0, 0, o.width, o.height), x.clear(), s(), p();
       }
       function v() {
         T && !(o.width === b.width && o.height === b.height) && (o.width = r.width = b.width, o.height = r.height = b.height), !o.width && !o.height && (n(r), o.width = r.width, o.height = r.height), t.clearRect(0, 0, o.width, o.height), l = l.filter(function(M) {
           return P(t, M);
-        }), l.length ? a = z.frame(v) : m();
+        }), l.length ? a = z.frame(v) : g();
       }
-      a = z.frame(v), i = m;
+      a = z.frame(v), i = g;
     });
     return {
       addFettis: function(p) {
@@ -534,41 +534,41 @@ var c = Pe(), de = {};
     };
   }
   function U(r, e) {
-    var n = !r, o = !!h(e || {}, "resize"), s = !1, l = h(e, "disableForReducedMotion", Boolean), t = y && !!h(e || {}, "useWorker"), a = t ? j() : null, i = n ? te : $, u = r && a ? !!r.__confetti_initialized : !1, p = typeof matchMedia == "function" && matchMedia("(prefers-reduced-motion)").matches, m;
+    var n = !r, o = !!h(e || {}, "resize"), s = !1, l = h(e, "disableForReducedMotion", Boolean), t = y && !!h(e || {}, "useWorker"), a = t ? j() : null, i = n ? te : $, u = r && a ? !!r.__confetti_initialized : !1, p = typeof matchMedia == "function" && matchMedia("(prefers-reduced-motion)").matches, g;
     function v(d, R, O) {
-      for (var I = h(d, "particleCount", re), W = h(d, "angle", Number), q = h(d, "spread", Number), F = h(d, "startVelocity", Number), be = h(d, "decay", Number), ye = h(d, "gravity", Number), we = h(d, "drift", Number), fe = h(d, "colors", L), Me = h(d, "ticks", Number), he = h(d, "shapes"), Ee = h(d, "scalar"), ke = !!h(d, "flat"), pe = Z(d), me = I, ce = [], Te = r.width * pe.x, Re = r.height * pe.y; me--; )
+      for (var I = h(d, "particleCount", re), D = h(d, "angle", Number), q = h(d, "spread", Number), F = h(d, "startVelocity", Number), be = h(d, "decay", Number), ye = h(d, "gravity", Number), we = h(d, "drift", Number), fe = h(d, "colors", L), Me = h(d, "ticks", Number), he = h(d, "shapes"), ke = h(d, "scalar"), Ee = !!h(d, "flat"), pe = Z(d), ge = I, ce = [], Te = r.width * pe.x, Re = r.height * pe.y; ge--; )
         ce.push(
           G({
             x: Te,
             y: Re,
-            angle: W,
+            angle: D,
             spread: q,
             startVelocity: F,
-            color: fe[me % fe.length],
+            color: fe[ge % fe.length],
             shape: he[ie(0, he.length)],
             ticks: Me,
             decay: be,
             gravity: ye,
             drift: we,
-            scalar: Ee,
-            flat: ke
+            scalar: ke,
+            flat: Ee
           })
         );
-      return m ? m.addFettis(ce) : (m = X(r, ce, i, R, O), m.promise);
+      return g ? g.addFettis(ce) : (g = X(r, ce, i, R, O), g.promise);
     }
     function M(d) {
       var R = l || h(d, "disableForReducedMotion", Boolean), O = h(d, "zIndex", Number);
       if (R && p)
-        return D(function(F) {
+        return Y(function(F) {
           F();
         });
-      n && m ? r = m.canvas : n && !r && (r = S(O), document.body.appendChild(r)), o && !u && i(r);
+      n && g ? r = g.canvas : n && !r && (r = S(O), document.body.appendChild(r)), o && !u && i(r);
       var I = {
         width: r.width,
         height: r.height
       };
       a && !u && a.init(r), u = !0, a && (r.__confetti_initialized = !0);
-      function W() {
+      function D() {
         if (a) {
           var F = {
             getBoundingClientRect: function() {
@@ -587,12 +587,12 @@ var c = Pe(), de = {};
         I.width = I.height = null;
       }
       function q() {
-        m = null, o && (s = !1, g.removeEventListener("resize", W)), n && r && (document.body.contains(r) && document.body.removeChild(r), r = null, u = !1);
+        g = null, o && (s = !1, m.removeEventListener("resize", D)), n && r && (document.body.contains(r) && document.body.removeChild(r), r = null, u = !1);
       }
-      return o && !s && (s = !0, g.addEventListener("resize", W, !1)), a ? a.fire(d, I, q) : v(d, I, q);
+      return o && !s && (s = !0, m.addEventListener("resize", D, !1)), a ? a.fire(d, I, q) : v(d, I, q);
     }
     return M.reset = function() {
-      a && a.reset(), m && m.reset();
+      a && a.reset(), g && g.reset();
     }, M;
   }
   var B;
@@ -619,17 +619,17 @@ var c = Pe(), de = {};
     typeof r == "string" ? e = r : (e = r.path, n = r.matrix);
     var o = new Path2D(e), s = document.createElement("canvas"), l = s.getContext("2d");
     if (!n) {
-      for (var t = 1e3, a = t, i = t, u = 0, p = 0, m, v, M = 0; M < t; M += 2)
+      for (var t = 1e3, a = t, i = t, u = 0, p = 0, g, v, M = 0; M < t; M += 2)
         for (var d = 0; d < t; d += 2)
           l.isPointInPath(o, M, d, "nonzero") && (a = Math.min(a, M), i = Math.min(i, d), u = Math.max(u, M), p = Math.max(p, d));
-      m = u - a, v = p - i;
-      var R = 10, O = Math.min(R / m, R / v);
+      g = u - a, v = p - i;
+      var R = 10, O = Math.min(R / g, R / v);
       n = [
         O,
         0,
         0,
         O,
-        -Math.round(m / 2 + a) * O,
+        -Math.round(g / 2 + a) * O,
         -Math.round(v / 2 + i) * O
       ];
     }
@@ -644,28 +644,28 @@ var c = Pe(), de = {};
     typeof r == "string" ? e = r : (e = r.text, n = "scalar" in r ? r.scalar : n, s = "fontFamily" in r ? r.fontFamily : s, o = "color" in r ? r.color : o);
     var l = 10 * n, t = "" + l + "px " + s, a = new OffscreenCanvas(l, l), i = a.getContext("2d");
     i.font = t;
-    var u = i.measureText(e), p = Math.ceil(u.actualBoundingBoxRight + u.actualBoundingBoxLeft), m = Math.ceil(u.actualBoundingBoxAscent + u.actualBoundingBoxDescent), v = 2, M = u.actualBoundingBoxLeft + v, d = u.actualBoundingBoxAscent + v;
-    p += v + v, m += v + v, a = new OffscreenCanvas(p, m), i = a.getContext("2d"), i.font = t, i.fillStyle = o, i.fillText(e, M, d);
+    var u = i.measureText(e), p = Math.ceil(u.actualBoundingBoxRight + u.actualBoundingBoxLeft), g = Math.ceil(u.actualBoundingBoxAscent + u.actualBoundingBoxDescent), v = 2, M = u.actualBoundingBoxLeft + v, d = u.actualBoundingBoxAscent + v;
+    p += v + v, g += v + v, a = new OffscreenCanvas(p, g), i = a.getContext("2d"), i.font = t, i.fillStyle = o, i.fillText(e, M, d);
     var R = 1 / n;
     return {
       type: "bitmap",
       // TODO these probably need to be transfered for workers
       bitmap: a.transferToImageBitmap(),
-      matrix: [R, 0, 0, R, -p * R / 2, -m * R / 2]
+      matrix: [R, 0, 0, R, -p * R / 2, -g * R / 2]
     };
   }
-  E.exports = function() {
+  k.exports = function() {
     return V().apply(this, arguments);
-  }, E.exports.reset = function() {
+  }, k.exports.reset = function() {
     V().reset();
-  }, E.exports.create = U, E.exports.shapeFromPath = K, E.exports.shapeFromText = H;
+  }, k.exports.create = U, k.exports.shapeFromPath = K, k.exports.shapeFromText = H;
 })(/* @__PURE__ */ (function() {
   return typeof window < "u" ? window : typeof self < "u" ? self : this || {};
 })(), de, !1);
 const _e = de.exports;
 de.exports.create;
 function Ie() {
-  const [k, g] = _(/* @__PURE__ */ new Set()), [E, T] = _(""), [b, y] = _(0), [f, A] = _(!1), [C, D] = _(null), [x, z] = _(1), [j, N] = _(!1), [ee, oe] = _(!1), [h, re] = _(!1), [ie, J] = _(!1), [L, Y] = _(0.1), [Z, te] = _(0.1), $ = ue(null), S = ue({}), w = ue(null), G = {
+  const [E, m] = _(/* @__PURE__ */ new Set()), [k, T] = _(""), [b, y] = _(0), [f, A] = _(!1), [C, Y] = _(null), [x, z] = _(1), [j, N] = _(!1), [ee, oe] = _(!1), [h, re] = _(!1), [ie, J] = _(!1), [L, W] = _(0.1), [Z, te] = _(0.1), $ = ue(null), S = ue({}), w = ue(null), G = {
     en: {
       title: "✡ Chanukkiah ✡",
       nightLabel: "Night",
@@ -698,7 +698,7 @@ function Ie() {
     const t = () => {
       if ($.current) {
         const a = $.current.getBoundingClientRect();
-        D({
+        Y({
           top: a.top,
           left: a.left,
           width: a.width,
@@ -710,7 +710,7 @@ function Ie() {
       window.removeEventListener("resize", t), window.removeEventListener("scroll", t);
     };
   }, []), se(() => {
-    g(/* @__PURE__ */ new Set()), T(""), y(0);
+    m(/* @__PURE__ */ new Set()), T(""), y(0);
   }, [x]);
   const X = (t) => {
     for (let i = 1; i <= x; i++)
@@ -718,15 +718,15 @@ function Ie() {
     const a = x;
     return t.size === a && !t.has("shamash") ? "shamash" : null;
   }, U = (t) => {
-    if (!f || k.has(t)) return;
+    if (!f || E.has(t)) return;
     if (typeof t == "number" && t > x) {
       T(P.errorNight(x));
       return;
     }
-    const a = X(k);
+    const a = X(E);
     if (t === a) {
-      const i = /* @__PURE__ */ new Set([...k, t]);
-      g(i), y(0), T(""), (i.size === x || i.size === x + 1) && (h || re(!0), _e({
+      const i = /* @__PURE__ */ new Set([...E, t]);
+      m(i), y(0), T(""), (i.size === x || i.size === x + 1) && (h || re(!0), _e({
         particleCount: 150,
         spread: 70,
         origin: { y: 0.6 },
@@ -747,7 +747,7 @@ function Ie() {
   }, Q = (t) => {
     U(t);
   }, K = () => {
-    g(/* @__PURE__ */ new Set()), T(""), y(0), setShowGreeting(!1);
+    m(/* @__PURE__ */ new Set()), T(""), y(0), setShowGreeting(!1);
   }, H = () => {
     if (f)
       A(!1), w.current && w.current.pause();
@@ -758,12 +758,12 @@ function Ie() {
   }, r = () => {
     N(!j);
   }, e = () => {
-    L > 0 ? (te(L), Y(0), w.current && (w.current.volume = 0)) : (Y(Z), w.current && (w.current.volume = Z));
+    L > 0 ? (te(L), W(0), w.current && (w.current.volume = 0)) : (W(Z), w.current && (w.current.volume = Z));
   }, n = (t) => {
     const a = parseFloat(t.target.value);
-    Y(a), w.current && (w.current.volume = a);
+    W(a), w.current && (w.current.volume = a);
   }, o = ({ id: t, isShamash: a }) => {
-    const i = !f || k.has(t);
+    const i = !f || E.has(t);
     return /* @__PURE__ */ c.jsxs(
       "div",
       {
@@ -876,9 +876,27 @@ function Ie() {
             50% { transform: scale(1.05); opacity: 0.8; }
             100% { transform: scale(1); opacity: 1; }
           }
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-15px); }
+        .header-text {
+          font-family: "Cinzel Decorative", "Segoe UI", sans-serif;
+          font-size: 5rem;
+          font-weight: 900;
+          margin: 0;
+          background: linear-gradient(to bottom, #ffd700, #ffaa00, #ffd700);
+          background-size: 200% auto;
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          color: transparent; /* Fallback */
+          filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.6));
+          letter-spacing: 4px;
+          animation: celebrate 4s ease-in-out infinite;
+          white-space: nowrap;
+          transform-style: preserve-3d;
+          padding: 10px; /* Prevent clipping */
+        }
+        @keyframes celebrate {
+          0%, 100% { transform: translateY(0px) scale(1); filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.6)); }
+          50% { transform: translateY(-15px) scale(1.05); filter: drop-shadow(0 0 35px rgba(255, 215, 0, 0.8)); }
         }
         @keyframes pulse {
           0%, 100% { opacity: 0.8; transform: scale(1); }
@@ -1046,29 +1064,15 @@ function Ie() {
               children: [
                 /* @__PURE__ */ c.jsx("div", { style: {
                   textAlign: "center",
-                  marginBottom: "40px",
-                  // Increased spacing
+                  marginBottom: "60px",
+                  // Increased spacing further
                   marginTop: "-60px",
-                  // Pull it up further
                   zIndex: 50,
                   cursor: "default",
                   userSelect: "none",
                   opacity: f ? 1 : 0,
-                  // Ensure hidden when minimized
                   transition: "opacity 0.3s"
-                }, children: /* @__PURE__ */ c.jsx("h1", { style: {
-                  fontFamily: '"Cinzel Decorative", "Segoe UI", sans-serif',
-                  fontSize: "3.5rem",
-                  fontWeight: "900",
-                  margin: 0,
-                  background: "linear-gradient(to bottom, #ffd700, #ffaa00)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  filter: "drop-shadow(0 0 15px rgba(255, 215, 0, 0.4))",
-                  letterSpacing: "2px",
-                  animation: "float 6s ease-in-out infinite",
-                  whiteSpace: "nowrap"
-                }, children: j ? "חג חנוכה שמח!" : "HAPPY HANUKKAH!" }) }),
+                }, children: /* @__PURE__ */ c.jsx("h1", { className: "header-text", children: j ? "חג חנוכה שמח!" : "HAPPY HANUKKAH!" }) }),
                 /* @__PURE__ */ c.jsx("div", { style: {
                   marginBottom: "20px",
                   opacity: f ? 1 : 0,
@@ -1114,7 +1118,7 @@ function Ie() {
                   marginBottom: "10px",
                   opacity: f ? 1 : 0,
                   transition: "opacity 0.3s"
-                }, children: E && f && /* @__PURE__ */ c.jsx(
+                }, children: k && f && /* @__PURE__ */ c.jsx(
                   "div",
                   {
                     style: {
@@ -1130,7 +1134,7 @@ function Ie() {
                       animation: "fadeIn 0.3s",
                       boxShadow: "0 2px 10px rgba(0,0,0,0.3)"
                     },
-                    children: E
+                    children: k
                   }
                 ) }),
                 /* @__PURE__ */ c.jsxs("div", { style: {
