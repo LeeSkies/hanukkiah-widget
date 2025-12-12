@@ -1,344 +1,710 @@
-import Ce, { useState as _, useRef as ue, useEffect as se } from "react";
-var le = { exports: {} }, ne = {};
-var me;
-function je() {
-  if (me) return ne;
-  me = 1;
-  var E = Symbol.for("react.transitional.element"), m = Symbol.for("react.fragment");
-  function k(T, b, y) {
-    var f = null;
-    if (y !== void 0 && (f = "" + y), b.key !== void 0 && (f = "" + b.key), "key" in b) {
-      y = {};
-      for (var A in b)
-        A !== "key" && (y[A] = b[A]);
-    } else y = b;
-    return b = y.ref, {
-      $$typeof: E,
-      type: T,
-      key: f,
-      ref: b !== void 0 ? b : null,
-      props: y
-    };
+import Qe, { useState as X, useRef as Ne, useEffect as Pe } from "react";
+var $e = { exports: {} }, Te = {};
+/**
+ * @license React
+ * react-jsx-runtime.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+var Xe;
+function hr() {
+  if (Xe) return Te;
+  Xe = 1;
+  var te = Qe, k = Symbol.for("react.element"), N = Symbol.for("react.fragment"), L = Object.prototype.hasOwnProperty, Z = te.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, Y = { key: !0, ref: !0, __self: !0, __source: !0 };
+  function b(U, R, V) {
+    var x, D = {}, O = null, ne = null;
+    V !== void 0 && (O = "" + V), R.key !== void 0 && (O = "" + R.key), R.ref !== void 0 && (ne = R.ref);
+    for (x in R) L.call(R, x) && !Y.hasOwnProperty(x) && (D[x] = R[x]);
+    if (U && U.defaultProps) for (x in R = U.defaultProps, R) D[x] === void 0 && (D[x] = R[x]);
+    return { $$typeof: k, type: U, key: O, ref: ne, props: D, _owner: Z.current };
   }
-  return ne.Fragment = m, ne.jsx = k, ne.jsxs = k, ne;
+  return Te.Fragment = N, Te.jsx = b, Te.jsxs = b, Te;
 }
-var ae = {};
-var ve;
-function Se() {
-  return ve || (ve = 1, process.env.NODE_ENV !== "production" && (function() {
+var Me = {};
+/**
+ * @license React
+ * react-jsx-runtime.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+var Ze;
+function vr() {
+  return Ze || (Ze = 1, process.env.NODE_ENV !== "production" && function() {
+    var te = Qe, k = Symbol.for("react.element"), N = Symbol.for("react.portal"), L = Symbol.for("react.fragment"), Z = Symbol.for("react.strict_mode"), Y = Symbol.for("react.profiler"), b = Symbol.for("react.provider"), U = Symbol.for("react.context"), R = Symbol.for("react.forward_ref"), V = Symbol.for("react.suspense"), x = Symbol.for("react.suspense_list"), D = Symbol.for("react.memo"), O = Symbol.for("react.lazy"), ne = Symbol.for("react.offscreen"), ye = Symbol.iterator, ke = "@@iterator";
     function E(e) {
-      if (e == null) return null;
-      if (typeof e == "function")
-        return e.$$typeof === G ? null : e.displayName || e.name || null;
-      if (typeof e == "string") return e;
+      if (e === null || typeof e != "object")
+        return null;
+      var a = ye && e[ye] || e[ke];
+      return typeof a == "function" ? a : null;
+    }
+    var ae = te.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+    function I(e) {
+      {
+        for (var a = arguments.length, i = new Array(a > 1 ? a - 1 : 0), u = 1; u < a; u++)
+          i[u - 1] = arguments[u];
+        fe("error", e, i);
+      }
+    }
+    function fe(e, a, i) {
+      {
+        var u = ae.ReactDebugCurrentFrame, w = u.getStackAddendum();
+        w !== "" && (a += "%s", i = i.concat([w]));
+        var T = i.map(function(m) {
+          return String(m);
+        });
+        T.unshift("Warning: " + a), Function.prototype.apply.call(console[e], console, T);
+      }
+    }
+    var oe = !1, ie = !1, de = !1, be = !1, se = !1, Q;
+    Q = Symbol.for("react.module.reference");
+    function F(e) {
+      return !!(typeof e == "string" || typeof e == "function" || e === L || e === Y || se || e === Z || e === V || e === x || be || e === ne || oe || ie || de || typeof e == "object" && e !== null && (e.$$typeof === O || e.$$typeof === D || e.$$typeof === b || e.$$typeof === U || e.$$typeof === R || // This needs to include all possible module reference object
+      // types supported by any Flight configuration anywhere since
+      // we don't know which Flight build this will end up being used
+      // with.
+      e.$$typeof === Q || e.getModuleId !== void 0));
+    }
+    function pe(e, a, i) {
+      var u = e.displayName;
+      if (u)
+        return u;
+      var w = a.displayName || a.name || "";
+      return w !== "" ? i + "(" + w + ")" : i;
+    }
+    function ee(e) {
+      return e.displayName || "Context";
+    }
+    function H(e) {
+      if (e == null)
+        return null;
+      if (typeof e.tag == "number" && I("Received an unexpected object in getComponentNameFromType(). This is likely a bug in React. Please file an issue."), typeof e == "function")
+        return e.displayName || e.name || null;
+      if (typeof e == "string")
+        return e;
       switch (e) {
-        case h:
+        case L:
           return "Fragment";
-        case ie:
+        case N:
+          return "Portal";
+        case Y:
           return "Profiler";
-        case re:
-          return "StrictMode";
         case Z:
+          return "StrictMode";
+        case V:
           return "Suspense";
-        case te:
+        case x:
           return "SuspenseList";
-        case w:
-          return "Activity";
       }
       if (typeof e == "object")
-        switch (typeof e.tag == "number" && console.error(
-          "Received an unexpected object in getComponentNameFromType(). This is likely a bug in React. Please file an issue."
-        ), e.$$typeof) {
-          case oe:
-            return "Portal";
-          case L:
-            return e.displayName || "Context";
-          case J:
-            return (e._context.displayName || "Context") + ".Consumer";
-          case W:
-            var n = e.render;
-            return e = e.displayName, e || (e = n.displayName || n.name || "", e = e !== "" ? "ForwardRef(" + e + ")" : "ForwardRef"), e;
-          case $:
-            return n = e.displayName || null, n !== null ? n : E(e.type) || "Memo";
-          case S:
-            n = e._payload, e = e._init;
+        switch (e.$$typeof) {
+          case U:
+            var a = e;
+            return ee(a) + ".Consumer";
+          case b:
+            var i = e;
+            return ee(i._context) + ".Provider";
+          case R:
+            return pe(e, e.render, "ForwardRef");
+          case D:
+            var u = e.displayName || null;
+            return u !== null ? u : H(e.type) || "Memo";
+          case O: {
+            var w = e, T = w._payload, m = w._init;
             try {
-              return E(e(n));
+              return H(m(T));
             } catch {
+              return null;
             }
+          }
         }
       return null;
     }
-    function m(e) {
+    var $ = Object.assign, re = 0, le, he, ve, ce, t, r, c;
+    function l() {
+    }
+    l.__reactDisabledLog = !0;
+    function d() {
+      {
+        if (re === 0) {
+          le = console.log, he = console.info, ve = console.warn, ce = console.error, t = console.group, r = console.groupCollapsed, c = console.groupEnd;
+          var e = {
+            configurable: !0,
+            enumerable: !0,
+            value: l,
+            writable: !0
+          };
+          Object.defineProperties(console, {
+            info: e,
+            log: e,
+            warn: e,
+            error: e,
+            group: e,
+            groupCollapsed: e,
+            groupEnd: e
+          });
+        }
+        re++;
+      }
+    }
+    function p() {
+      {
+        if (re--, re === 0) {
+          var e = {
+            configurable: !0,
+            enumerable: !0,
+            writable: !0
+          };
+          Object.defineProperties(console, {
+            log: $({}, e, {
+              value: le
+            }),
+            info: $({}, e, {
+              value: he
+            }),
+            warn: $({}, e, {
+              value: ve
+            }),
+            error: $({}, e, {
+              value: ce
+            }),
+            group: $({}, e, {
+              value: t
+            }),
+            groupCollapsed: $({}, e, {
+              value: r
+            }),
+            groupEnd: $({}, e, {
+              value: c
+            })
+          });
+        }
+        re < 0 && I("disabledDepth fell below zero. This is a bug in React. Please file an issue.");
+      }
+    }
+    var n = ae.ReactCurrentDispatcher, o;
+    function s(e, a, i) {
+      {
+        if (o === void 0)
+          try {
+            throw Error();
+          } catch (w) {
+            var u = w.stack.trim().match(/\n( *(at )?)/);
+            o = u && u[1] || "";
+          }
+        return `
+` + o + e;
+      }
+    }
+    var h = !1, y;
+    {
+      var C = typeof WeakMap == "function" ? WeakMap : Map;
+      y = new C();
+    }
+    function M(e, a) {
+      if (!e || h)
+        return "";
+      {
+        var i = y.get(e);
+        if (i !== void 0)
+          return i;
+      }
+      var u;
+      h = !0;
+      var w = Error.prepareStackTrace;
+      Error.prepareStackTrace = void 0;
+      var T;
+      T = n.current, n.current = null, d();
+      try {
+        if (a) {
+          var m = function() {
+            throw Error();
+          };
+          if (Object.defineProperty(m.prototype, "props", {
+            set: function() {
+              throw Error();
+            }
+          }), typeof Reflect == "object" && Reflect.construct) {
+            try {
+              Reflect.construct(m, []);
+            } catch (z) {
+              u = z;
+            }
+            Reflect.construct(e, [], m);
+          } else {
+            try {
+              m.call();
+            } catch (z) {
+              u = z;
+            }
+            e.call(m.prototype);
+          }
+        } else {
+          try {
+            throw Error();
+          } catch (z) {
+            u = z;
+          }
+          e();
+        }
+      } catch (z) {
+        if (z && u && typeof z.stack == "string") {
+          for (var v = z.stack.split(`
+`), B = u.stack.split(`
+`), j = v.length - 1, S = B.length - 1; j >= 1 && S >= 0 && v[j] !== B[S]; )
+            S--;
+          for (; j >= 1 && S >= 0; j--, S--)
+            if (v[j] !== B[S]) {
+              if (j !== 1 || S !== 1)
+                do
+                  if (j--, S--, S < 0 || v[j] !== B[S]) {
+                    var G = `
+` + v[j].replace(" at new ", " at ");
+                    return e.displayName && G.includes("<anonymous>") && (G = G.replace("<anonymous>", e.displayName)), typeof e == "function" && y.set(e, G), G;
+                  }
+                while (j >= 1 && S >= 0);
+              break;
+            }
+        }
+      } finally {
+        h = !1, n.current = T, p(), Error.prepareStackTrace = w;
+      }
+      var me = e ? e.displayName || e.name : "", ue = me ? s(me) : "";
+      return typeof e == "function" && y.set(e, ue), ue;
+    }
+    function _(e, a, i) {
+      return M(e, !1);
+    }
+    function g(e) {
+      var a = e.prototype;
+      return !!(a && a.isReactComponent);
+    }
+    function P(e, a, i) {
+      if (e == null)
+        return "";
+      if (typeof e == "function")
+        return M(e, g(e));
+      if (typeof e == "string")
+        return s(e);
+      switch (e) {
+        case V:
+          return s("Suspense");
+        case x:
+          return s("SuspenseList");
+      }
+      if (typeof e == "object")
+        switch (e.$$typeof) {
+          case R:
+            return _(e.render);
+          case D:
+            return P(e.type, a, i);
+          case O: {
+            var u = e, w = u._payload, T = u._init;
+            try {
+              return P(T(w), a, i);
+            } catch {
+            }
+          }
+        }
+      return "";
+    }
+    var A = Object.prototype.hasOwnProperty, W = {}, q = ae.ReactDebugCurrentFrame;
+    function J(e) {
+      if (e) {
+        var a = e._owner, i = P(e.type, e._source, a ? a.type : null);
+        q.setExtraStackFrame(i);
+      } else
+        q.setExtraStackFrame(null);
+    }
+    function K(e, a, i, u, w) {
+      {
+        var T = Function.call.bind(A);
+        for (var m in e)
+          if (T(e, m)) {
+            var v = void 0;
+            try {
+              if (typeof e[m] != "function") {
+                var B = Error((u || "React class") + ": " + i + " type `" + m + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + typeof e[m] + "`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.");
+                throw B.name = "Invariant Violation", B;
+              }
+              v = e[m](a, m, u, i, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
+            } catch (j) {
+              v = j;
+            }
+            v && !(v instanceof Error) && (J(w), I("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", u || "React class", i, m, typeof v), J(null)), v instanceof Error && !(v.message in W) && (W[v.message] = !0, J(w), I("Failed %s type: %s", i, v.message), J(null));
+          }
+      }
+    }
+    var Oe = Array.isArray;
+    function xe(e) {
+      return Oe(e);
+    }
+    function Ie(e) {
+      {
+        var a = typeof Symbol == "function" && Symbol.toStringTag, i = a && e[Symbol.toStringTag] || e.constructor.name || "Object";
+        return i;
+      }
+    }
+    function je(e) {
+      try {
+        return Se(e), !1;
+      } catch {
+        return !0;
+      }
+    }
+    function Se(e) {
       return "" + e;
     }
-    function k(e) {
-      try {
-        m(e);
-        var n = !1;
-      } catch {
-        n = !0;
+    function we(e) {
+      if (je(e))
+        return I("The provided key is an unsupported type %s. This value must be coerced to a string before before using it here.", Ie(e)), Se(e);
+    }
+    var _e = ae.ReactCurrentOwner, Fe = {
+      key: !0,
+      ref: !0,
+      __self: !0,
+      __source: !0
+    }, Ee, Re;
+    function Ce(e) {
+      if (A.call(e, "ref")) {
+        var a = Object.getOwnPropertyDescriptor(e, "ref").get;
+        if (a && a.isReactWarning)
+          return !1;
       }
-      if (n) {
-        n = console;
-        var o = n.error, s = typeof Symbol == "function" && Symbol.toStringTag && e[Symbol.toStringTag] || e.constructor.name || "Object";
-        return o.call(
-          n,
-          "The provided key is an unsupported type %s. This value must be coerced to a string before using it here.",
-          s
-        ), m(e);
-      }
+      return e.ref !== void 0;
     }
-    function T(e) {
-      if (e === h) return "<>";
-      if (typeof e == "object" && e !== null && e.$$typeof === S)
-        return "<...>";
-      try {
-        var n = E(e);
-        return n ? "<" + n + ">" : "<...>";
-      } catch {
-        return "<...>";
-      }
-    }
-    function b() {
-      var e = P.A;
-      return e === null ? null : e.getOwner();
-    }
-    function y() {
-      return Error("react-stack-top-frame");
-    }
-    function f(e) {
-      if (X.call(e, "key")) {
-        var n = Object.getOwnPropertyDescriptor(e, "key").get;
-        if (n && n.isReactWarning) return !1;
+    function Ae(e) {
+      if (A.call(e, "key")) {
+        var a = Object.getOwnPropertyDescriptor(e, "key").get;
+        if (a && a.isReactWarning)
+          return !1;
       }
       return e.key !== void 0;
     }
-    function A(e, n) {
-      function o() {
-        V || (V = !0, console.error(
-          "%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://react.dev/link/special-props)",
-          n
-        ));
-      }
-      o.isReactWarning = !0, Object.defineProperty(e, "key", {
-        get: o,
-        configurable: !0
-      });
+    function De(e, a) {
+      typeof e.ref == "string" && _e.current;
     }
-    function C() {
-      var e = E(this.type);
-      return Q[e] || (Q[e] = !0, console.error(
-        "Accessing element.ref was removed in React 19. ref is now a regular prop. It will be removed from the JSX Element type in a future release."
-      )), e = this.props.ref, e !== void 0 ? e : null;
-    }
-    function Y(e, n, o, s, l, t) {
-      var a = o.ref;
-      return e = {
-        $$typeof: ee,
-        type: e,
-        key: n,
-        props: o,
-        _owner: s
-      }, (a !== void 0 ? a : null) !== null ? Object.defineProperty(e, "ref", {
-        enumerable: !1,
-        get: C
-      }) : Object.defineProperty(e, "ref", { enumerable: !1, value: null }), e._store = {}, Object.defineProperty(e._store, "validated", {
-        configurable: !1,
-        enumerable: !1,
-        writable: !0,
-        value: 0
-      }), Object.defineProperty(e, "_debugInfo", {
-        configurable: !1,
-        enumerable: !1,
-        writable: !0,
-        value: null
-      }), Object.defineProperty(e, "_debugStack", {
-        configurable: !1,
-        enumerable: !1,
-        writable: !0,
-        value: l
-      }), Object.defineProperty(e, "_debugTask", {
-        configurable: !1,
-        enumerable: !1,
-        writable: !0,
-        value: t
-      }), Object.freeze && (Object.freeze(e.props), Object.freeze(e)), e;
-    }
-    function x(e, n, o, s, l, t) {
-      var a = n.children;
-      if (a !== void 0)
-        if (s)
-          if (U(a)) {
-            for (s = 0; s < a.length; s++)
-              z(a[s]);
-            Object.freeze && Object.freeze(a);
-          } else
-            console.error(
-              "React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead."
-            );
-        else z(a);
-      if (X.call(n, "key")) {
-        a = E(e);
-        var i = Object.keys(n).filter(function(p) {
-          return p !== "key";
+    function er(e, a) {
+      {
+        var i = function() {
+          Ee || (Ee = !0, I("%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", a));
+        };
+        i.isReactWarning = !0, Object.defineProperty(e, "key", {
+          get: i,
+          configurable: !0
         });
-        s = 0 < i.length ? "{key: someKey, " + i.join(": ..., ") + ": ...}" : "{key: someKey}", r[a + s] || (i = 0 < i.length ? "{" + i.join(": ..., ") + ": ...}" : "{}", console.error(
-          `A props object containing a "key" prop is being spread into JSX:
+      }
+    }
+    function rr(e, a) {
+      {
+        var i = function() {
+          Re || (Re = !0, I("%s: `ref` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", a));
+        };
+        i.isReactWarning = !0, Object.defineProperty(e, "ref", {
+          get: i,
+          configurable: !0
+        });
+      }
+    }
+    var tr = function(e, a, i, u, w, T, m) {
+      var v = {
+        // This tag allows us to uniquely identify this as a React Element
+        $$typeof: k,
+        // Built-in properties that belong on the element
+        type: e,
+        key: a,
+        ref: i,
+        props: m,
+        // Record the component responsible for creating this element.
+        _owner: T
+      };
+      return v._store = {}, Object.defineProperty(v._store, "validated", {
+        configurable: !1,
+        enumerable: !1,
+        writable: !0,
+        value: !1
+      }), Object.defineProperty(v, "_self", {
+        configurable: !1,
+        enumerable: !1,
+        writable: !1,
+        value: u
+      }), Object.defineProperty(v, "_source", {
+        configurable: !1,
+        enumerable: !1,
+        writable: !1,
+        value: w
+      }), Object.freeze && (Object.freeze(v.props), Object.freeze(v)), v;
+    };
+    function nr(e, a, i, u, w) {
+      {
+        var T, m = {}, v = null, B = null;
+        i !== void 0 && (we(i), v = "" + i), Ae(a) && (we(a.key), v = "" + a.key), Ce(a) && (B = a.ref, De(a, w));
+        for (T in a)
+          A.call(a, T) && !Fe.hasOwnProperty(T) && (m[T] = a[T]);
+        if (e && e.defaultProps) {
+          var j = e.defaultProps;
+          for (T in j)
+            m[T] === void 0 && (m[T] = j[T]);
+        }
+        if (v || B) {
+          var S = typeof e == "function" ? e.displayName || e.name || "Unknown" : e;
+          v && er(m, S), B && rr(m, S);
+        }
+        return tr(e, v, B, w, u, _e.current, m);
+      }
+    }
+    var Le = ae.ReactCurrentOwner, Ue = ae.ReactDebugCurrentFrame;
+    function ge(e) {
+      if (e) {
+        var a = e._owner, i = P(e.type, e._source, a ? a.type : null);
+        Ue.setExtraStackFrame(i);
+      } else
+        Ue.setExtraStackFrame(null);
+    }
+    var Be;
+    Be = !1;
+    function We(e) {
+      return typeof e == "object" && e !== null && e.$$typeof === k;
+    }
+    function Ve() {
+      {
+        if (Le.current) {
+          var e = H(Le.current.type);
+          if (e)
+            return `
+
+Check the render method of \`` + e + "`.";
+        }
+        return "";
+      }
+    }
+    function ar(e) {
+      return "";
+    }
+    var He = {};
+    function or(e) {
+      {
+        var a = Ve();
+        if (!a) {
+          var i = typeof e == "string" ? e : e.displayName || e.name;
+          i && (a = `
+
+Check the top-level render call using <` + i + ">.");
+        }
+        return a;
+      }
+    }
+    function qe(e, a) {
+      {
+        if (!e._store || e._store.validated || e.key != null)
+          return;
+        e._store.validated = !0;
+        var i = or(a);
+        if (He[i])
+          return;
+        He[i] = !0;
+        var u = "";
+        e && e._owner && e._owner !== Le.current && (u = " It was passed a child from " + H(e._owner.type) + "."), ge(e), I('Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.', i, u), ge(null);
+      }
+    }
+    function Je(e, a) {
+      {
+        if (typeof e != "object")
+          return;
+        if (xe(e))
+          for (var i = 0; i < e.length; i++) {
+            var u = e[i];
+            We(u) && qe(u, a);
+          }
+        else if (We(e))
+          e._store && (e._store.validated = !0);
+        else if (e) {
+          var w = E(e);
+          if (typeof w == "function" && w !== e.entries)
+            for (var T = w.call(e), m; !(m = T.next()).done; )
+              We(m.value) && qe(m.value, a);
+        }
+      }
+    }
+    function ir(e) {
+      {
+        var a = e.type;
+        if (a == null || typeof a == "string")
+          return;
+        var i;
+        if (typeof a == "function")
+          i = a.propTypes;
+        else if (typeof a == "object" && (a.$$typeof === R || // Note: Memo only checks outer props here.
+        // Inner props are checked in the reconciler.
+        a.$$typeof === D))
+          i = a.propTypes;
+        else
+          return;
+        if (i) {
+          var u = H(a);
+          K(i, e.props, "prop", u, e);
+        } else if (a.PropTypes !== void 0 && !Be) {
+          Be = !0;
+          var w = H(a);
+          I("Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?", w || "Unknown");
+        }
+        typeof a.getDefaultProps == "function" && !a.getDefaultProps.isReactClassApproved && I("getDefaultProps is only used on classic React.createClass definitions. Use a static property named `defaultProps` instead.");
+      }
+    }
+    function sr(e) {
+      {
+        for (var a = Object.keys(e.props), i = 0; i < a.length; i++) {
+          var u = a[i];
+          if (u !== "children" && u !== "key") {
+            ge(e), I("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.", u), ge(null);
+            break;
+          }
+        }
+        e.ref !== null && (ge(e), I("Invalid attribute `ref` supplied to `React.Fragment`."), ge(null));
+      }
+    }
+    var Ke = {};
+    function Ge(e, a, i, u, w, T) {
+      {
+        var m = F(e);
+        if (!m) {
+          var v = "";
+          (e === void 0 || typeof e == "object" && e !== null && Object.keys(e).length === 0) && (v += " You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.");
+          var B = ar();
+          B ? v += B : v += Ve();
+          var j;
+          e === null ? j = "null" : xe(e) ? j = "array" : e !== void 0 && e.$$typeof === k ? (j = "<" + (H(e.type) || "Unknown") + " />", v = " Did you accidentally export a JSX literal instead of a component?") : j = typeof e, I("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", j, v);
+        }
+        var S = nr(e, a, i, w, T);
+        if (S == null)
+          return S;
+        if (m) {
+          var G = a.children;
+          if (G !== void 0)
+            if (u)
+              if (xe(G)) {
+                for (var me = 0; me < G.length; me++)
+                  Je(G[me], e);
+                Object.freeze && Object.freeze(G);
+              } else
+                I("React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead.");
+            else
+              Je(G, e);
+        }
+        if (A.call(a, "key")) {
+          var ue = H(e), z = Object.keys(a).filter(function(pr) {
+            return pr !== "key";
+          }), ze = z.length > 0 ? "{key: someKey, " + z.join(": ..., ") + ": ...}" : "{key: someKey}";
+          if (!Ke[ue + ze]) {
+            var dr = z.length > 0 ? "{" + z.join(": ..., ") + ": ...}" : "{}";
+            I(`A props object containing a "key" prop is being spread into JSX:
   let props = %s;
   <%s {...props} />
 React keys must be passed directly to JSX without using spread:
   let props = %s;
-  <%s key={someKey} {...props} />`,
-          s,
-          a,
-          i,
-          a
-        ), r[a + s] = !0);
+  <%s key={someKey} {...props} />`, ze, ue, dr, ue), Ke[ue + ze] = !0;
+          }
+        }
+        return e === L ? sr(S) : ir(S), S;
       }
-      if (a = null, o !== void 0 && (k(o), a = "" + o), f(n) && (k(n.key), a = "" + n.key), "key" in n) {
-        o = {};
-        for (var u in n)
-          u !== "key" && (o[u] = n[u]);
-      } else o = n;
-      return a && A(
-        o,
-        typeof e == "function" ? e.displayName || e.name || "Unknown" : e
-      ), Y(
-        e,
-        a,
-        o,
-        b(),
-        l,
-        t
-      );
     }
-    function z(e) {
-      j(e) ? e._store && (e._store.validated = 1) : typeof e == "object" && e !== null && e.$$typeof === S && (e._payload.status === "fulfilled" ? j(e._payload.value) && e._payload.value._store && (e._payload.value._store.validated = 1) : e._store && (e._store.validated = 1));
+    function lr(e, a, i) {
+      return Ge(e, a, i, !0);
     }
-    function j(e) {
-      return typeof e == "object" && e !== null && e.$$typeof === ee;
+    function cr(e, a, i) {
+      return Ge(e, a, i, !1);
     }
-    var N = Ce, ee = Symbol.for("react.transitional.element"), oe = Symbol.for("react.portal"), h = Symbol.for("react.fragment"), re = Symbol.for("react.strict_mode"), ie = Symbol.for("react.profiler"), J = Symbol.for("react.consumer"), L = Symbol.for("react.context"), W = Symbol.for("react.forward_ref"), Z = Symbol.for("react.suspense"), te = Symbol.for("react.suspense_list"), $ = Symbol.for("react.memo"), S = Symbol.for("react.lazy"), w = Symbol.for("react.activity"), G = Symbol.for("react.client.reference"), P = N.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, X = Object.prototype.hasOwnProperty, U = Array.isArray, B = console.createTask ? console.createTask : function() {
-      return null;
-    };
-    N = {
-      react_stack_bottom_frame: function(e) {
-        return e();
-      }
-    };
-    var V, Q = {}, K = N.react_stack_bottom_frame.bind(
-      N,
-      y
-    )(), H = B(T(y)), r = {};
-    ae.Fragment = h, ae.jsx = function(e, n, o) {
-      var s = 1e4 > P.recentlyCreatedOwnerStacks++;
-      return x(
-        e,
-        n,
-        o,
-        !1,
-        s ? Error("react-stack-top-frame") : K,
-        s ? B(T(e)) : H
-      );
-    }, ae.jsxs = function(e, n, o) {
-      var s = 1e4 > P.recentlyCreatedOwnerStacks++;
-      return x(
-        e,
-        n,
-        o,
-        !0,
-        s ? Error("react-stack-top-frame") : K,
-        s ? B(T(e)) : H
-      );
-    };
-  })()), ae;
+    var ur = cr, fr = lr;
+    Me.Fragment = L, Me.jsx = ur, Me.jsxs = fr;
+  }()), Me;
 }
-var xe;
-function Pe() {
-  return xe || (xe = 1, process.env.NODE_ENV === "production" ? le.exports = je() : le.exports = Se()), le.exports;
-}
-var c = Pe(), de = {};
-(function E(m, k, T, b) {
-  var y = !!(m.Worker && m.Blob && m.Promise && m.OffscreenCanvas && m.OffscreenCanvasRenderingContext2D && m.HTMLCanvasElement && m.HTMLCanvasElement.prototype.transferControlToOffscreen && m.URL && m.URL.createObjectURL), f = typeof Path2D == "function" && typeof DOMMatrix == "function", A = (function() {
-    if (!m.OffscreenCanvas)
+process.env.NODE_ENV === "production" ? $e.exports = hr() : $e.exports = vr();
+var f = $e.exports, Ye = {};
+(function te(k, N, L, Z) {
+  var Y = !!(k.Worker && k.Blob && k.Promise && k.OffscreenCanvas && k.OffscreenCanvasRenderingContext2D && k.HTMLCanvasElement && k.HTMLCanvasElement.prototype.transferControlToOffscreen && k.URL && k.URL.createObjectURL), b = typeof Path2D == "function" && typeof DOMMatrix == "function", U = function() {
+    if (!k.OffscreenCanvas)
       return !1;
     try {
-      var r = new OffscreenCanvas(1, 1), e = r.getContext("2d");
-      e.fillRect(0, 0, 1, 1);
-      var n = r.transferToImageBitmap();
-      e.createPattern(n, "no-repeat");
+      var t = new OffscreenCanvas(1, 1), r = t.getContext("2d");
+      r.fillRect(0, 0, 1, 1);
+      var c = t.transferToImageBitmap();
+      r.createPattern(c, "no-repeat");
     } catch {
       return !1;
     }
     return !0;
-  })();
-  function C() {
+  }();
+  function R() {
   }
-  function Y(r) {
-    var e = k.exports.Promise, n = e !== void 0 ? e : m.Promise;
-    return typeof n == "function" ? new n(r) : (r(C, C), null);
+  function V(t) {
+    var r = N.exports.Promise, c = r !== void 0 ? r : k.Promise;
+    return typeof c == "function" ? new c(t) : (t(R, R), null);
   }
-  var x = /* @__PURE__ */ (function(r, e) {
+  var x = /* @__PURE__ */ function(t, r) {
     return {
-      transform: function(n) {
-        if (r)
-          return n;
-        if (e.has(n))
-          return e.get(n);
-        var o = new OffscreenCanvas(n.width, n.height), s = o.getContext("2d");
-        return s.drawImage(n, 0, 0), e.set(n, o), o;
+      transform: function(c) {
+        if (t)
+          return c;
+        if (r.has(c))
+          return r.get(c);
+        var l = new OffscreenCanvas(c.width, c.height), d = l.getContext("2d");
+        return d.drawImage(c, 0, 0), r.set(c, l), l;
       },
       clear: function() {
-        e.clear();
+        r.clear();
       }
     };
-  })(A, /* @__PURE__ */ new Map()), z = (function() {
-    var r = Math.floor(16.666666666666668), e, n, o = {}, s = 0;
-    return typeof requestAnimationFrame == "function" && typeof cancelAnimationFrame == "function" ? (e = function(l) {
-      var t = Math.random();
-      return o[t] = requestAnimationFrame(function a(i) {
-        s === i || s + r - 1 < i ? (s = i, delete o[t], l()) : o[t] = requestAnimationFrame(a);
-      }), t;
-    }, n = function(l) {
-      o[l] && cancelAnimationFrame(o[l]);
-    }) : (e = function(l) {
-      return setTimeout(l, r);
-    }, n = function(l) {
-      return clearTimeout(l);
-    }), { frame: e, cancel: n };
-  })(), j = /* @__PURE__ */ (function() {
-    var r, e, n = {};
-    function o(s) {
-      function l(t, a) {
-        s.postMessage({ options: t || {}, callback: a });
+  }(U, /* @__PURE__ */ new Map()), D = function() {
+    var t = Math.floor(16.666666666666668), r, c, l = {}, d = 0;
+    return typeof requestAnimationFrame == "function" && typeof cancelAnimationFrame == "function" ? (r = function(p) {
+      var n = Math.random();
+      return l[n] = requestAnimationFrame(function o(s) {
+        d === s || d + t - 1 < s ? (d = s, delete l[n], p()) : l[n] = requestAnimationFrame(o);
+      }), n;
+    }, c = function(p) {
+      l[p] && cancelAnimationFrame(l[p]);
+    }) : (r = function(p) {
+      return setTimeout(p, t);
+    }, c = function(p) {
+      return clearTimeout(p);
+    }), { frame: r, cancel: c };
+  }(), O = /* @__PURE__ */ function() {
+    var t, r, c = {};
+    function l(d) {
+      function p(n, o) {
+        d.postMessage({ options: n || {}, callback: o });
       }
-      s.init = function(a) {
-        var i = a.transferControlToOffscreen();
-        s.postMessage({ canvas: i }, [i]);
-      }, s.fire = function(a, i, u) {
-        if (e)
-          return l(a, null), e;
-        var p = Math.random().toString(36).slice(2);
-        return e = Y(function(g) {
-          function v(M) {
-            M.data.callback === p && (delete n[p], s.removeEventListener("message", v), e = null, x.clear(), u(), g());
+      d.init = function(o) {
+        var s = o.transferControlToOffscreen();
+        d.postMessage({ canvas: s }, [s]);
+      }, d.fire = function(o, s, h) {
+        if (r)
+          return p(o, null), r;
+        var y = Math.random().toString(36).slice(2);
+        return r = V(function(C) {
+          function M(_) {
+            _.data.callback === y && (delete c[y], d.removeEventListener("message", M), r = null, x.clear(), h(), C());
           }
-          s.addEventListener("message", v), l(a, p), n[p] = v.bind(null, { data: { callback: p } });
-        }), e;
-      }, s.reset = function() {
-        s.postMessage({ reset: !0 });
-        for (var a in n)
-          n[a](), delete n[a];
+          d.addEventListener("message", M), p(o, y), c[y] = M.bind(null, { data: { callback: y } });
+        }), r;
+      }, d.reset = function() {
+        d.postMessage({ reset: !0 });
+        for (var o in c)
+          c[o](), delete c[o];
       };
     }
     return function() {
-      if (r)
-        return r;
-      if (!T && y) {
-        var s = [
+      if (t)
+        return t;
+      if (!L && Y) {
+        var d = [
           "var CONFETTI, SIZE = {}, module = {};",
-          "(" + E.toString() + ")(this, module, true, SIZE);",
+          "(" + te.toString() + ")(this, module, true, SIZE);",
           "onmessage = function(msg) {",
           "  if (msg.data.options) {",
           "    CONFETTI(msg.data.options).then(function () {",
@@ -360,15 +726,15 @@ var c = Pe(), de = {};
         ].join(`
 `);
         try {
-          r = new Worker(URL.createObjectURL(new Blob([s])));
-        } catch (l) {
-          return typeof console < "u" && typeof console.warn == "function" && console.warn("🎊 Could not load worker", l), null;
+          t = new Worker(URL.createObjectURL(new Blob([d])));
+        } catch (p) {
+          return typeof console < "u" && typeof console.warn == "function" && console.warn("🎊 Could not load worker", p), null;
         }
-        o(r);
+        l(t);
       }
-      return r;
+      return t;
     };
-  })(), N = {
+  }(), ne = {
     particleCount: 50,
     angle: 90,
     spread: 45,
@@ -394,284 +760,284 @@ var c = Pe(), de = {};
     disableForReducedMotion: !1,
     scalar: 1
   };
-  function ee(r, e) {
-    return e ? e(r) : r;
+  function ye(t, r) {
+    return r ? r(t) : t;
   }
-  function oe(r) {
-    return r != null;
+  function ke(t) {
+    return t != null;
   }
-  function h(r, e, n) {
-    return ee(
-      r && oe(r[e]) ? r[e] : N[e],
-      n
+  function E(t, r, c) {
+    return ye(
+      t && ke(t[r]) ? t[r] : ne[r],
+      c
     );
   }
-  function re(r) {
-    return r < 0 ? 0 : Math.floor(r);
+  function ae(t) {
+    return t < 0 ? 0 : Math.floor(t);
   }
-  function ie(r, e) {
-    return Math.floor(Math.random() * (e - r)) + r;
+  function I(t, r) {
+    return Math.floor(Math.random() * (r - t)) + t;
   }
-  function J(r) {
-    return parseInt(r, 16);
+  function fe(t) {
+    return parseInt(t, 16);
   }
-  function L(r) {
-    return r.map(W);
+  function oe(t) {
+    return t.map(ie);
   }
-  function W(r) {
-    var e = String(r).replace(/[^0-9a-f]/gi, "");
-    return e.length < 6 && (e = e[0] + e[0] + e[1] + e[1] + e[2] + e[2]), {
-      r: J(e.substring(0, 2)),
-      g: J(e.substring(2, 4)),
-      b: J(e.substring(4, 6))
+  function ie(t) {
+    var r = String(t).replace(/[^0-9a-f]/gi, "");
+    return r.length < 6 && (r = r[0] + r[0] + r[1] + r[1] + r[2] + r[2]), {
+      r: fe(r.substring(0, 2)),
+      g: fe(r.substring(2, 4)),
+      b: fe(r.substring(4, 6))
     };
   }
-  function Z(r) {
-    var e = h(r, "origin", Object);
-    return e.x = h(e, "x", Number), e.y = h(e, "y", Number), e;
+  function de(t) {
+    var r = E(t, "origin", Object);
+    return r.x = E(r, "x", Number), r.y = E(r, "y", Number), r;
   }
-  function te(r) {
-    r.width = document.documentElement.clientWidth, r.height = document.documentElement.clientHeight;
+  function be(t) {
+    t.width = document.documentElement.clientWidth, t.height = document.documentElement.clientHeight;
   }
-  function $(r) {
-    var e = r.getBoundingClientRect();
-    r.width = e.width, r.height = e.height;
+  function se(t) {
+    var r = t.getBoundingClientRect();
+    t.width = r.width, t.height = r.height;
   }
-  function S(r) {
-    var e = document.createElement("canvas");
-    return e.style.position = "fixed", e.style.top = "0px", e.style.left = "0px", e.style.pointerEvents = "none", e.style.zIndex = r, e;
+  function Q(t) {
+    var r = document.createElement("canvas");
+    return r.style.position = "fixed", r.style.top = "0px", r.style.left = "0px", r.style.pointerEvents = "none", r.style.zIndex = t, r;
   }
-  function w(r, e, n, o, s, l, t, a, i) {
-    r.save(), r.translate(e, n), r.rotate(l), r.scale(o, s), r.arc(0, 0, 1, t, a, i), r.restore();
+  function F(t, r, c, l, d, p, n, o, s) {
+    t.save(), t.translate(r, c), t.rotate(p), t.scale(l, d), t.arc(0, 0, 1, n, o, s), t.restore();
   }
-  function G(r) {
-    var e = r.angle * (Math.PI / 180), n = r.spread * (Math.PI / 180);
+  function pe(t) {
+    var r = t.angle * (Math.PI / 180), c = t.spread * (Math.PI / 180);
     return {
-      x: r.x,
-      y: r.y,
+      x: t.x,
+      y: t.y,
       wobble: Math.random() * 10,
       wobbleSpeed: Math.min(0.11, Math.random() * 0.1 + 0.05),
-      velocity: r.startVelocity * 0.5 + Math.random() * r.startVelocity,
-      angle2D: -e + (0.5 * n - Math.random() * n),
+      velocity: t.startVelocity * 0.5 + Math.random() * t.startVelocity,
+      angle2D: -r + (0.5 * c - Math.random() * c),
       tiltAngle: (Math.random() * (0.75 - 0.25) + 0.25) * Math.PI,
-      color: r.color,
-      shape: r.shape,
+      color: t.color,
+      shape: t.shape,
       tick: 0,
-      totalTicks: r.ticks,
-      decay: r.decay,
-      drift: r.drift,
+      totalTicks: t.ticks,
+      decay: t.decay,
+      drift: t.drift,
       random: Math.random() + 2,
       tiltSin: 0,
       tiltCos: 0,
       wobbleX: 0,
       wobbleY: 0,
-      gravity: r.gravity * 3,
+      gravity: t.gravity * 3,
       ovalScalar: 0.6,
-      scalar: r.scalar,
-      flat: r.flat
+      scalar: t.scalar,
+      flat: t.flat
     };
   }
-  function P(r, e) {
-    e.x += Math.cos(e.angle2D) * e.velocity + e.drift, e.y += Math.sin(e.angle2D) * e.velocity + e.gravity, e.velocity *= e.decay, e.flat ? (e.wobble = 0, e.wobbleX = e.x + 10 * e.scalar, e.wobbleY = e.y + 10 * e.scalar, e.tiltSin = 0, e.tiltCos = 0, e.random = 1) : (e.wobble += e.wobbleSpeed, e.wobbleX = e.x + 10 * e.scalar * Math.cos(e.wobble), e.wobbleY = e.y + 10 * e.scalar * Math.sin(e.wobble), e.tiltAngle += 0.1, e.tiltSin = Math.sin(e.tiltAngle), e.tiltCos = Math.cos(e.tiltAngle), e.random = Math.random() + 2);
-    var n = e.tick++ / e.totalTicks, o = e.x + e.random * e.tiltCos, s = e.y + e.random * e.tiltSin, l = e.wobbleX + e.random * e.tiltCos, t = e.wobbleY + e.random * e.tiltSin;
-    if (r.fillStyle = "rgba(" + e.color.r + ", " + e.color.g + ", " + e.color.b + ", " + (1 - n) + ")", r.beginPath(), f && e.shape.type === "path" && typeof e.shape.path == "string" && Array.isArray(e.shape.matrix))
-      r.fill(Q(
-        e.shape.path,
-        e.shape.matrix,
-        e.x,
-        e.y,
-        Math.abs(l - o) * 0.1,
-        Math.abs(t - s) * 0.1,
-        Math.PI / 10 * e.wobble
+  function ee(t, r) {
+    r.x += Math.cos(r.angle2D) * r.velocity + r.drift, r.y += Math.sin(r.angle2D) * r.velocity + r.gravity, r.velocity *= r.decay, r.flat ? (r.wobble = 0, r.wobbleX = r.x + 10 * r.scalar, r.wobbleY = r.y + 10 * r.scalar, r.tiltSin = 0, r.tiltCos = 0, r.random = 1) : (r.wobble += r.wobbleSpeed, r.wobbleX = r.x + 10 * r.scalar * Math.cos(r.wobble), r.wobbleY = r.y + 10 * r.scalar * Math.sin(r.wobble), r.tiltAngle += 0.1, r.tiltSin = Math.sin(r.tiltAngle), r.tiltCos = Math.cos(r.tiltAngle), r.random = Math.random() + 2);
+    var c = r.tick++ / r.totalTicks, l = r.x + r.random * r.tiltCos, d = r.y + r.random * r.tiltSin, p = r.wobbleX + r.random * r.tiltCos, n = r.wobbleY + r.random * r.tiltSin;
+    if (t.fillStyle = "rgba(" + r.color.r + ", " + r.color.g + ", " + r.color.b + ", " + (1 - c) + ")", t.beginPath(), b && r.shape.type === "path" && typeof r.shape.path == "string" && Array.isArray(r.shape.matrix))
+      t.fill(he(
+        r.shape.path,
+        r.shape.matrix,
+        r.x,
+        r.y,
+        Math.abs(p - l) * 0.1,
+        Math.abs(n - d) * 0.1,
+        Math.PI / 10 * r.wobble
       ));
-    else if (e.shape.type === "bitmap") {
-      var a = Math.PI / 10 * e.wobble, i = Math.abs(l - o) * 0.1, u = Math.abs(t - s) * 0.1, p = e.shape.bitmap.width * e.scalar, g = e.shape.bitmap.height * e.scalar, v = new DOMMatrix([
-        Math.cos(a) * i,
-        Math.sin(a) * i,
-        -Math.sin(a) * u,
-        Math.cos(a) * u,
-        e.x,
-        e.y
+    else if (r.shape.type === "bitmap") {
+      var o = Math.PI / 10 * r.wobble, s = Math.abs(p - l) * 0.1, h = Math.abs(n - d) * 0.1, y = r.shape.bitmap.width * r.scalar, C = r.shape.bitmap.height * r.scalar, M = new DOMMatrix([
+        Math.cos(o) * s,
+        Math.sin(o) * s,
+        -Math.sin(o) * h,
+        Math.cos(o) * h,
+        r.x,
+        r.y
       ]);
-      v.multiplySelf(new DOMMatrix(e.shape.matrix));
-      var M = r.createPattern(x.transform(e.shape.bitmap), "no-repeat");
-      M.setTransform(v), r.globalAlpha = 1 - n, r.fillStyle = M, r.fillRect(
-        e.x - p / 2,
-        e.y - g / 2,
-        p,
-        g
-      ), r.globalAlpha = 1;
-    } else if (e.shape === "circle")
-      r.ellipse ? r.ellipse(e.x, e.y, Math.abs(l - o) * e.ovalScalar, Math.abs(t - s) * e.ovalScalar, Math.PI / 10 * e.wobble, 0, 2 * Math.PI) : w(r, e.x, e.y, Math.abs(l - o) * e.ovalScalar, Math.abs(t - s) * e.ovalScalar, Math.PI / 10 * e.wobble, 0, 2 * Math.PI);
-    else if (e.shape === "star")
-      for (var d = Math.PI / 2 * 3, R = 4 * e.scalar, O = 8 * e.scalar, I = e.x, D = e.y, q = 5, F = Math.PI / q; q--; )
-        I = e.x + Math.cos(d) * O, D = e.y + Math.sin(d) * O, r.lineTo(I, D), d += F, I = e.x + Math.cos(d) * R, D = e.y + Math.sin(d) * R, r.lineTo(I, D), d += F;
+      M.multiplySelf(new DOMMatrix(r.shape.matrix));
+      var _ = t.createPattern(x.transform(r.shape.bitmap), "no-repeat");
+      _.setTransform(M), t.globalAlpha = 1 - c, t.fillStyle = _, t.fillRect(
+        r.x - y / 2,
+        r.y - C / 2,
+        y,
+        C
+      ), t.globalAlpha = 1;
+    } else if (r.shape === "circle")
+      t.ellipse ? t.ellipse(r.x, r.y, Math.abs(p - l) * r.ovalScalar, Math.abs(n - d) * r.ovalScalar, Math.PI / 10 * r.wobble, 0, 2 * Math.PI) : F(t, r.x, r.y, Math.abs(p - l) * r.ovalScalar, Math.abs(n - d) * r.ovalScalar, Math.PI / 10 * r.wobble, 0, 2 * Math.PI);
+    else if (r.shape === "star")
+      for (var g = Math.PI / 2 * 3, P = 4 * r.scalar, A = 8 * r.scalar, W = r.x, q = r.y, J = 5, K = Math.PI / J; J--; )
+        W = r.x + Math.cos(g) * A, q = r.y + Math.sin(g) * A, t.lineTo(W, q), g += K, W = r.x + Math.cos(g) * P, q = r.y + Math.sin(g) * P, t.lineTo(W, q), g += K;
     else
-      r.moveTo(Math.floor(e.x), Math.floor(e.y)), r.lineTo(Math.floor(e.wobbleX), Math.floor(s)), r.lineTo(Math.floor(l), Math.floor(t)), r.lineTo(Math.floor(o), Math.floor(e.wobbleY));
-    return r.closePath(), r.fill(), e.tick < e.totalTicks;
+      t.moveTo(Math.floor(r.x), Math.floor(r.y)), t.lineTo(Math.floor(r.wobbleX), Math.floor(d)), t.lineTo(Math.floor(p), Math.floor(n)), t.lineTo(Math.floor(l), Math.floor(r.wobbleY));
+    return t.closePath(), t.fill(), r.tick < r.totalTicks;
   }
-  function X(r, e, n, o, s) {
-    var l = e.slice(), t = r.getContext("2d"), a, i, u = Y(function(p) {
-      function g() {
-        a = i = null, t.clearRect(0, 0, o.width, o.height), x.clear(), s(), p();
+  function H(t, r, c, l, d) {
+    var p = r.slice(), n = t.getContext("2d"), o, s, h = V(function(y) {
+      function C() {
+        o = s = null, n.clearRect(0, 0, l.width, l.height), x.clear(), d(), y();
       }
-      function v() {
-        T && !(o.width === b.width && o.height === b.height) && (o.width = r.width = b.width, o.height = r.height = b.height), !o.width && !o.height && (n(r), o.width = r.width, o.height = r.height), t.clearRect(0, 0, o.width, o.height), l = l.filter(function(M) {
-          return P(t, M);
-        }), l.length ? a = z.frame(v) : g();
+      function M() {
+        L && !(l.width === Z.width && l.height === Z.height) && (l.width = t.width = Z.width, l.height = t.height = Z.height), !l.width && !l.height && (c(t), l.width = t.width, l.height = t.height), n.clearRect(0, 0, l.width, l.height), p = p.filter(function(_) {
+          return ee(n, _);
+        }), p.length ? o = D.frame(M) : C();
       }
-      a = z.frame(v), i = g;
+      o = D.frame(M), s = C;
     });
     return {
-      addFettis: function(p) {
-        return l = l.concat(p), u;
+      addFettis: function(y) {
+        return p = p.concat(y), h;
       },
-      canvas: r,
-      promise: u,
+      canvas: t,
+      promise: h,
       reset: function() {
-        a && z.cancel(a), i && i();
+        o && D.cancel(o), s && s();
       }
     };
   }
-  function U(r, e) {
-    var n = !r, o = !!h(e || {}, "resize"), s = !1, l = h(e, "disableForReducedMotion", Boolean), t = y && !!h(e || {}, "useWorker"), a = t ? j() : null, i = n ? te : $, u = r && a ? !!r.__confetti_initialized : !1, p = typeof matchMedia == "function" && matchMedia("(prefers-reduced-motion)").matches, g;
-    function v(d, R, O) {
-      for (var I = h(d, "particleCount", re), D = h(d, "angle", Number), q = h(d, "spread", Number), F = h(d, "startVelocity", Number), be = h(d, "decay", Number), ye = h(d, "gravity", Number), we = h(d, "drift", Number), fe = h(d, "colors", L), Me = h(d, "ticks", Number), he = h(d, "shapes"), ke = h(d, "scalar"), Ee = !!h(d, "flat"), pe = Z(d), ge = I, ce = [], Te = r.width * pe.x, Re = r.height * pe.y; ge--; )
-        ce.push(
-          G({
-            x: Te,
-            y: Re,
-            angle: D,
-            spread: q,
-            startVelocity: F,
-            color: fe[ge % fe.length],
-            shape: he[ie(0, he.length)],
-            ticks: Me,
-            decay: be,
-            gravity: ye,
-            drift: we,
-            scalar: ke,
-            flat: Ee
+  function $(t, r) {
+    var c = !t, l = !!E(r || {}, "resize"), d = !1, p = E(r, "disableForReducedMotion", Boolean), n = Y && !!E(r || {}, "useWorker"), o = n ? O() : null, s = c ? be : se, h = t && o ? !!t.__confetti_initialized : !1, y = typeof matchMedia == "function" && matchMedia("(prefers-reduced-motion)").matches, C;
+    function M(g, P, A) {
+      for (var W = E(g, "particleCount", ae), q = E(g, "angle", Number), J = E(g, "spread", Number), K = E(g, "startVelocity", Number), Oe = E(g, "decay", Number), xe = E(g, "gravity", Number), Ie = E(g, "drift", Number), je = E(g, "colors", oe), Se = E(g, "ticks", Number), we = E(g, "shapes"), _e = E(g, "scalar"), Fe = !!E(g, "flat"), Ee = de(g), Re = W, Ce = [], Ae = t.width * Ee.x, De = t.height * Ee.y; Re--; )
+        Ce.push(
+          pe({
+            x: Ae,
+            y: De,
+            angle: q,
+            spread: J,
+            startVelocity: K,
+            color: je[Re % je.length],
+            shape: we[I(0, we.length)],
+            ticks: Se,
+            decay: Oe,
+            gravity: xe,
+            drift: Ie,
+            scalar: _e,
+            flat: Fe
           })
         );
-      return g ? g.addFettis(ce) : (g = X(r, ce, i, R, O), g.promise);
+      return C ? C.addFettis(Ce) : (C = H(t, Ce, s, P, A), C.promise);
     }
-    function M(d) {
-      var R = l || h(d, "disableForReducedMotion", Boolean), O = h(d, "zIndex", Number);
-      if (R && p)
-        return Y(function(F) {
-          F();
+    function _(g) {
+      var P = p || E(g, "disableForReducedMotion", Boolean), A = E(g, "zIndex", Number);
+      if (P && y)
+        return V(function(K) {
+          K();
         });
-      n && g ? r = g.canvas : n && !r && (r = S(O), document.body.appendChild(r)), o && !u && i(r);
-      var I = {
-        width: r.width,
-        height: r.height
+      c && C ? t = C.canvas : c && !t && (t = Q(A), document.body.appendChild(t)), l && !h && s(t);
+      var W = {
+        width: t.width,
+        height: t.height
       };
-      a && !u && a.init(r), u = !0, a && (r.__confetti_initialized = !0);
-      function D() {
-        if (a) {
-          var F = {
+      o && !h && o.init(t), h = !0, o && (t.__confetti_initialized = !0);
+      function q() {
+        if (o) {
+          var K = {
             getBoundingClientRect: function() {
-              if (!n)
-                return r.getBoundingClientRect();
+              if (!c)
+                return t.getBoundingClientRect();
             }
           };
-          i(F), a.postMessage({
+          s(K), o.postMessage({
             resize: {
-              width: F.width,
-              height: F.height
+              width: K.width,
+              height: K.height
             }
           });
           return;
         }
-        I.width = I.height = null;
+        W.width = W.height = null;
       }
-      function q() {
-        g = null, o && (s = !1, m.removeEventListener("resize", D)), n && r && (document.body.contains(r) && document.body.removeChild(r), r = null, u = !1);
+      function J() {
+        C = null, l && (d = !1, k.removeEventListener("resize", q)), c && t && (document.body.contains(t) && document.body.removeChild(t), t = null, h = !1);
       }
-      return o && !s && (s = !0, m.addEventListener("resize", D, !1)), a ? a.fire(d, I, q) : v(d, I, q);
+      return l && !d && (d = !0, k.addEventListener("resize", q, !1)), o ? o.fire(g, W, J) : M(g, W, J);
     }
-    return M.reset = function() {
-      a && a.reset(), g && g.reset();
-    }, M;
+    return _.reset = function() {
+      o && o.reset(), C && C.reset();
+    }, _;
   }
-  var B;
-  function V() {
-    return B || (B = U(null, { useWorker: !0, resize: !0 })), B;
+  var re;
+  function le() {
+    return re || (re = $(null, { useWorker: !0, resize: !0 })), re;
   }
-  function Q(r, e, n, o, s, l, t) {
-    var a = new Path2D(r), i = new Path2D();
-    i.addPath(a, new DOMMatrix(e));
-    var u = new Path2D();
-    return u.addPath(i, new DOMMatrix([
-      Math.cos(t) * s,
-      Math.sin(t) * s,
-      -Math.sin(t) * l,
-      Math.cos(t) * l,
-      n,
-      o
-    ])), u;
+  function he(t, r, c, l, d, p, n) {
+    var o = new Path2D(t), s = new Path2D();
+    s.addPath(o, new DOMMatrix(r));
+    var h = new Path2D();
+    return h.addPath(s, new DOMMatrix([
+      Math.cos(n) * d,
+      Math.sin(n) * d,
+      -Math.sin(n) * p,
+      Math.cos(n) * p,
+      c,
+      l
+    ])), h;
   }
-  function K(r) {
-    if (!f)
+  function ve(t) {
+    if (!b)
       throw new Error("path confetti are not supported in this browser");
-    var e, n;
-    typeof r == "string" ? e = r : (e = r.path, n = r.matrix);
-    var o = new Path2D(e), s = document.createElement("canvas"), l = s.getContext("2d");
-    if (!n) {
-      for (var t = 1e3, a = t, i = t, u = 0, p = 0, g, v, M = 0; M < t; M += 2)
-        for (var d = 0; d < t; d += 2)
-          l.isPointInPath(o, M, d, "nonzero") && (a = Math.min(a, M), i = Math.min(i, d), u = Math.max(u, M), p = Math.max(p, d));
-      g = u - a, v = p - i;
-      var R = 10, O = Math.min(R / g, R / v);
-      n = [
-        O,
+    var r, c;
+    typeof t == "string" ? r = t : (r = t.path, c = t.matrix);
+    var l = new Path2D(r), d = document.createElement("canvas"), p = d.getContext("2d");
+    if (!c) {
+      for (var n = 1e3, o = n, s = n, h = 0, y = 0, C, M, _ = 0; _ < n; _ += 2)
+        for (var g = 0; g < n; g += 2)
+          p.isPointInPath(l, _, g, "nonzero") && (o = Math.min(o, _), s = Math.min(s, g), h = Math.max(h, _), y = Math.max(y, g));
+      C = h - o, M = y - s;
+      var P = 10, A = Math.min(P / C, P / M);
+      c = [
+        A,
         0,
         0,
-        O,
-        -Math.round(g / 2 + a) * O,
-        -Math.round(v / 2 + i) * O
+        A,
+        -Math.round(C / 2 + o) * A,
+        -Math.round(M / 2 + s) * A
       ];
     }
     return {
       type: "path",
-      path: e,
-      matrix: n
+      path: r,
+      matrix: c
     };
   }
-  function H(r) {
-    var e, n = 1, o = "#000000", s = '"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "EmojiOne Color", "Android Emoji", "Twemoji Mozilla", "system emoji", sans-serif';
-    typeof r == "string" ? e = r : (e = r.text, n = "scalar" in r ? r.scalar : n, s = "fontFamily" in r ? r.fontFamily : s, o = "color" in r ? r.color : o);
-    var l = 10 * n, t = "" + l + "px " + s, a = new OffscreenCanvas(l, l), i = a.getContext("2d");
-    i.font = t;
-    var u = i.measureText(e), p = Math.ceil(u.actualBoundingBoxRight + u.actualBoundingBoxLeft), g = Math.ceil(u.actualBoundingBoxAscent + u.actualBoundingBoxDescent), v = 2, M = u.actualBoundingBoxLeft + v, d = u.actualBoundingBoxAscent + v;
-    p += v + v, g += v + v, a = new OffscreenCanvas(p, g), i = a.getContext("2d"), i.font = t, i.fillStyle = o, i.fillText(e, M, d);
-    var R = 1 / n;
+  function ce(t) {
+    var r, c = 1, l = "#000000", d = '"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "EmojiOne Color", "Android Emoji", "Twemoji Mozilla", "system emoji", sans-serif';
+    typeof t == "string" ? r = t : (r = t.text, c = "scalar" in t ? t.scalar : c, d = "fontFamily" in t ? t.fontFamily : d, l = "color" in t ? t.color : l);
+    var p = 10 * c, n = "" + p + "px " + d, o = new OffscreenCanvas(p, p), s = o.getContext("2d");
+    s.font = n;
+    var h = s.measureText(r), y = Math.ceil(h.actualBoundingBoxRight + h.actualBoundingBoxLeft), C = Math.ceil(h.actualBoundingBoxAscent + h.actualBoundingBoxDescent), M = 2, _ = h.actualBoundingBoxLeft + M, g = h.actualBoundingBoxAscent + M;
+    y += M + M, C += M + M, o = new OffscreenCanvas(y, C), s = o.getContext("2d"), s.font = n, s.fillStyle = l, s.fillText(r, _, g);
+    var P = 1 / c;
     return {
       type: "bitmap",
       // TODO these probably need to be transfered for workers
-      bitmap: a.transferToImageBitmap(),
-      matrix: [R, 0, 0, R, -p * R / 2, -g * R / 2]
+      bitmap: o.transferToImageBitmap(),
+      matrix: [P, 0, 0, P, -y * P / 2, -C * P / 2]
     };
   }
-  k.exports = function() {
-    return V().apply(this, arguments);
-  }, k.exports.reset = function() {
-    V().reset();
-  }, k.exports.create = U, k.exports.shapeFromPath = K, k.exports.shapeFromText = H;
-})(/* @__PURE__ */ (function() {
+  N.exports = function() {
+    return le().apply(this, arguments);
+  }, N.exports.reset = function() {
+    le().reset();
+  }, N.exports.create = $, N.exports.shapeFromPath = ve, N.exports.shapeFromText = ce;
+})(/* @__PURE__ */ function() {
   return typeof window < "u" ? window : typeof self < "u" ? self : this || {};
-})(), de, !1);
-const _e = de.exports;
-de.exports.create;
-function Ie() {
-  const [E, m] = _(/* @__PURE__ */ new Set()), [k, T] = _(""), [b, y] = _(0), [f, A] = _(!1), [C, Y] = _(null), [x, z] = _(1), [j, N] = _(!1), [ee, oe] = _(!1), [h, re] = _(!1), [ie, J] = _(!1), [L, W] = _(0.1), [Z, te] = _(0.1), $ = ue(null), S = ue({}), w = ue(null), G = {
+}(), Ye, !1);
+const gr = Ye.exports;
+Ye.exports.create;
+function yr() {
+  const [te, k] = X(/* @__PURE__ */ new Set()), [N, L] = X(""), [Z, Y] = X(0), [b, U] = X(!1), [R, V] = X(null), [x, D] = X(1), [O, ne] = X(!1), [ye, ke] = X(!1), [E, ae] = X(!1), [I, fe] = X(!1), [oe, ie] = X(0.1), [de, be] = X(0.1), se = Ne(null), Q = Ne({}), F = Ne(null), pe = {
     en: {
       title: "✡ Chanukkiah ✡",
       nightLabel: "Night",
       reset: "Reset",
-      errorOrder: (t) => `Please light candles 1-${t} in order, then the Shamash.`,
-      errorNight: (t) => `Tonight is Night ${t}. You only need to light candles 1-${t}.`,
+      errorOrder: (n) => `Please light candles 1-${n} in order, then the Shamash.`,
+      errorNight: (n) => `Tonight is Night ${n}. You only need to light candles 1-${n}.`,
       langBtn: "עברית",
       locked: "Light tonight's candles first!"
     },
@@ -679,54 +1045,54 @@ function Ie() {
       title: "✡ חנוכייה ✡",
       nightLabel: "לילה",
       reset: "איפוס",
-      errorOrder: (t) => `נא להדליק את הנרות 1-${t} לפי הסדר, ואז את השמש.`,
-      errorNight: (t) => `הלילה הוא לילה ${t}. צריך להדליק רק את הנרות 1-${t}.`,
+      errorOrder: (n) => `נא להדליק את הנרות 1-${n} לפי הסדר, ואז את השמש.`,
+      errorNight: (n) => `הלילה הוא לילה ${n}. צריך להדליק רק את הנרות 1-${n}.`,
       langBtn: "English",
       locked: "יש להדליק את נרות הלילה קודם!"
     }
-  }, P = j ? G.he : G.en;
-  se(() => {
-    const t = document.documentElement.lang || "en";
-    N(t.startsWith("he"));
-  }, []), se(() => {
-    const t = /* @__PURE__ */ new Date(), a = new Date(t.getFullYear(), 11, 14);
-    t.setHours(0, 0, 0, 0), a.setHours(0, 0, 0, 0);
-    const i = t - a;
-    let p = Math.ceil(i / (1e3 * 60 * 60 * 24)) + 1;
-    p < 1 && (p = 1), p > 8 && (p = 8), z(p);
-  }, []), se(() => {
-    const t = () => {
-      if ($.current) {
-        const a = $.current.getBoundingClientRect();
-        Y({
-          top: a.top,
-          left: a.left,
-          width: a.width,
-          height: a.height
+  }, ee = O ? pe.he : pe.en;
+  Pe(() => {
+    const n = document.documentElement.lang || "en";
+    ne(n.startsWith("he"));
+  }, []), Pe(() => {
+    const n = /* @__PURE__ */ new Date(), o = new Date(n.getFullYear(), 11, 14);
+    n.setHours(0, 0, 0, 0), o.setHours(0, 0, 0, 0);
+    const s = n - o;
+    let y = Math.ceil(s / (1e3 * 60 * 60 * 24)) + 1;
+    y < 1 && (y = 1), y > 8 && (y = 8), D(y);
+  }, []), Pe(() => {
+    const n = () => {
+      if (se.current) {
+        const o = se.current.getBoundingClientRect();
+        V({
+          top: o.top,
+          left: o.left,
+          width: o.width,
+          height: o.height
         });
       }
     };
-    return t(), window.addEventListener("resize", t), window.addEventListener("scroll", t), () => {
-      window.removeEventListener("resize", t), window.removeEventListener("scroll", t);
+    return n(), window.addEventListener("resize", n), window.addEventListener("scroll", n), () => {
+      window.removeEventListener("resize", n), window.removeEventListener("scroll", n);
     };
-  }, []), se(() => {
-    m(/* @__PURE__ */ new Set()), T(""), y(0);
+  }, []), Pe(() => {
+    k(/* @__PURE__ */ new Set()), L(""), Y(0);
   }, [x]);
-  const X = (t) => {
-    for (let i = 1; i <= x; i++)
-      if (!t.has(i)) return i;
-    const a = x;
-    return t.size === a && !t.has("shamash") ? "shamash" : null;
-  }, U = (t) => {
-    if (!f || E.has(t)) return;
-    if (typeof t == "number" && t > x) {
-      T(P.errorNight(x));
+  const H = (n) => {
+    for (let s = 1; s <= x; s++)
+      if (!n.has(s)) return s;
+    const o = x;
+    return n.size === o && !n.has("shamash") ? "shamash" : null;
+  }, $ = (n) => {
+    if (!b || te.has(n)) return;
+    if (typeof n == "number" && n > x) {
+      L(ee.errorNight(x));
       return;
     }
-    const a = X(E);
-    if (t === a) {
-      const i = /* @__PURE__ */ new Set([...E, t]);
-      m(i), y(0), T(""), (i.size === x || i.size === x + 1) && (h || re(!0), _e({
+    const o = H(te);
+    if (n === o) {
+      const s = /* @__PURE__ */ new Set([...te, n]);
+      k(s), Y(0), L(""), (s.size === x || s.size === x + 1) && (E || ae(!0), gr({
         particleCount: 150,
         spread: 70,
         origin: { y: 0.6 },
@@ -735,42 +1101,42 @@ function Ie() {
         // Ensure it's above the modal
       }));
     } else {
-      const i = b + 1;
-      y(i), i > 2 && T(P.errorOrder(x));
+      const s = Z + 1;
+      Y(s), s > 2 && L(ee.errorOrder(x));
     }
-  }, B = (t) => {
-    f && (S.current[t] && clearTimeout(S.current[t]), S.current[t] = setTimeout(() => {
-      U(t);
+  }, re = (n) => {
+    b && (Q.current[n] && clearTimeout(Q.current[n]), Q.current[n] = setTimeout(() => {
+      $(n);
     }, 500));
-  }, V = (t) => {
-    S.current[t] && (clearTimeout(S.current[t]), delete S.current[t]);
-  }, Q = (t) => {
-    U(t);
-  }, K = () => {
-    m(/* @__PURE__ */ new Set()), T(""), y(0), setShowGreeting(!1);
-  }, H = () => {
-    if (f)
-      A(!1), w.current && w.current.pause();
+  }, le = (n) => {
+    Q.current[n] && (clearTimeout(Q.current[n]), delete Q.current[n]);
+  }, he = (n) => {
+    $(n);
+  }, ve = () => {
+    k(/* @__PURE__ */ new Set()), L(""), Y(0), setShowGreeting(!1);
+  }, ce = () => {
+    if (b)
+      U(!1), F.current && F.current.pause();
     else {
-      const t = document.documentElement.lang || "en";
-      N(t.startsWith("he")), A(!0), w.current && (w.current.volume = L, w.current.currentTime = 0, w.current.play().catch((a) => console.error("Audio play failed:", a)));
+      const n = document.documentElement.lang || "en";
+      ne(n.startsWith("he")), U(!0), F.current && (F.current.volume = oe, F.current.currentTime = 0, F.current.play().catch((o) => console.error("Audio play failed:", o)));
     }
+  }, t = () => {
+    ne(!O);
   }, r = () => {
-    N(!j);
-  }, e = () => {
-    L > 0 ? (te(L), W(0), w.current && (w.current.volume = 0)) : (W(Z), w.current && (w.current.volume = Z));
-  }, n = (t) => {
-    const a = parseFloat(t.target.value);
-    W(a), w.current && (w.current.volume = a);
-  }, o = ({ id: t, isShamash: a }) => {
-    const i = !f || E.has(t);
-    return /* @__PURE__ */ c.jsxs(
+    oe > 0 ? (be(oe), ie(0), F.current && (F.current.volume = 0)) : (ie(de), F.current && (F.current.volume = de));
+  }, c = (n) => {
+    const o = parseFloat(n.target.value);
+    ie(o), F.current && (F.current.volume = o);
+  }, l = ({ id: n, isShamash: o }) => {
+    const s = !b || te.has(n);
+    return /* @__PURE__ */ f.jsxs(
       "div",
       {
-        onMouseEnter: () => B(t),
-        onMouseLeave: () => V(t),
-        onClick: (u) => {
-          u.stopPropagation(), Q(t);
+        onMouseEnter: () => re(n),
+        onMouseLeave: () => le(n),
+        onClick: (h) => {
+          h.stopPropagation(), he(n);
         },
         style: {
           display: "flex",
@@ -781,37 +1147,37 @@ function Ie() {
           transition: "transform 0.2s",
           position: "relative",
           zIndex: 10,
-          pointerEvents: f ? "auto" : "none"
+          pointerEvents: b ? "auto" : "none"
         },
-        onMouseOver: (u) => {
-          f && (u.currentTarget.style.transform = "translateY(-5px)");
+        onMouseOver: (h) => {
+          b && (h.currentTarget.style.transform = "translateY(-5px)");
         },
-        onMouseOut: (u) => {
-          f && (u.currentTarget.style.transform = "translateY(0)");
+        onMouseOut: (h) => {
+          b && (h.currentTarget.style.transform = "translateY(0)");
         },
         children: [
-          /* @__PURE__ */ c.jsx(
+          /* @__PURE__ */ f.jsx(
             "div",
             {
               style: {
                 width: "20px",
                 height: "30px",
-                background: i ? "linear-gradient(to top, #ff6b00 0%, #ffaa00 50%, #ffeb3b 100%)" : "transparent",
+                background: s ? "linear-gradient(to top, #ff6b00 0%, #ffaa00 50%, #ffeb3b 100%)" : "transparent",
                 borderRadius: "50% 50% 50% 50% / 60% 60% 40% 40%",
-                opacity: i ? 1 : 0,
+                opacity: s ? 1 : 0,
                 transition: "opacity 0.3s",
-                boxShadow: i ? "0 0 20px #ffaa00, 0 0 40px #ff6b00" : "none",
-                animation: i ? "flicker 1.5s ease-in-out infinite alternate" : "none",
+                boxShadow: s ? "0 0 20px #ffaa00, 0 0 40px #ff6b00" : "none",
+                animation: s ? "flicker 1.5s ease-in-out infinite alternate" : "none",
                 marginBottom: "2px"
               }
             }
           ),
-          /* @__PURE__ */ c.jsx(
+          /* @__PURE__ */ f.jsx(
             "div",
             {
               style: {
                 width: "25px",
-                height: a ? "130px" : "100px",
+                height: o ? "130px" : "100px",
                 background: "linear-gradient(to right, #4a90e2 0%, #5ba3f5 50%, #4a90e2 100%)",
                 borderRadius: "3px",
                 boxShadow: "inset -2px 0 5px rgba(0, 0, 0, 0.3)"
@@ -821,7 +1187,7 @@ function Ie() {
         ]
       }
     );
-  }, s = f ? {
+  }, d = b ? {
     position: "fixed",
     top: 0,
     left: 0,
@@ -835,15 +1201,15 @@ function Ie() {
     justifyContent: "center",
     transition: "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
     borderRadius: 0,
-    direction: j ? "rtl" : "ltr",
+    direction: O ? "rtl" : "ltr",
     // RTL support
     cursor: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" style="font-size: 24px;"><text y="22">🕯️</text></svg>') 16 16, auto`
   } : {
     position: "fixed",
-    top: C ? `${C.top}px` : "0",
-    left: C ? `${C.left}px` : "0",
-    width: C ? `${C.width}px` : "120px",
-    height: C ? `${C.height}px` : "80px",
+    top: R ? `${R.top}px` : "0",
+    left: R ? `${R.left}px` : "0",
+    width: R ? `${R.width}px` : "120px",
+    height: R ? `${R.height}px` : "80px",
     background: "linear-gradient(to bottom, #0f2557 0%, #1a3a6e 100%)",
     zIndex: 9999,
     display: "flex",
@@ -855,9 +1221,9 @@ function Ie() {
     cursor: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" style="font-size: 24px;"><text y="22">🕯️</text></svg>') 16 16, pointer`,
     boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
     overflow: "hidden"
-  }, l = f ? 1 : 0.25;
-  return /* @__PURE__ */ c.jsxs(c.Fragment, { children: [
-    /* @__PURE__ */ c.jsx("style", { children: `
+  }, p = b ? 1 : 0.25;
+  return /* @__PURE__ */ f.jsxs(f.Fragment, { children: [
+    /* @__PURE__ */ f.jsx("style", { children: `
           @keyframes flicker {
             0%, 100% { transform: scale(1) translateY(0); }
             50% { transform: scale(1.05) translateY(-2px); }
@@ -903,18 +1269,18 @@ function Ie() {
           50% { opacity: 1; transform: scale(1.1); }
         }
         ` }),
-    /* @__PURE__ */ c.jsx(
+    /* @__PURE__ */ f.jsx(
       "audio",
       {
-        ref: w,
+        ref: F,
         src: "https://media.vocaroo.com/mp3/14RouJ9dzgvV",
         volume: "0.75"
       }
     ),
-    /* @__PURE__ */ c.jsx(
+    /* @__PURE__ */ f.jsx(
       "div",
       {
-        ref: $,
+        ref: se,
         style: {
           width: "120px",
           height: "80px",
@@ -923,54 +1289,54 @@ function Ie() {
         }
       }
     ),
-    /* @__PURE__ */ c.jsxs(
+    /* @__PURE__ */ f.jsxs(
       "div",
       {
-        style: s,
-        onClick: f ? void 0 : H,
+        style: d,
+        onClick: b ? void 0 : ce,
         children: [
-          /* @__PURE__ */ c.jsx(
+          /* @__PURE__ */ f.jsx(
             "button",
             {
-              onClick: (t) => {
-                t.stopPropagation(), H();
+              onClick: (n) => {
+                n.stopPropagation(), ce();
               },
               style: {
                 position: "absolute",
                 top: "20px",
-                right: j ? "auto" : "20px",
-                left: j ? "20px" : "auto",
+                right: O ? "auto" : "20px",
+                left: O ? "20px" : "auto",
                 background: "transparent",
                 border: "none",
                 color: "#fff",
                 fontSize: "24px",
                 cursor: "pointer",
-                opacity: f ? 1 : 0,
-                pointerEvents: f ? "auto" : "none",
+                opacity: b ? 1 : 0,
+                pointerEvents: b ? "auto" : "none",
                 transition: "opacity 0.3s",
                 zIndex: 100
               },
               children: "✕"
             }
           ),
-          /* @__PURE__ */ c.jsxs("div", { style: {
+          /* @__PURE__ */ f.jsxs("div", { style: {
             position: "absolute",
             top: "20px",
-            left: j ? "auto" : "20px",
-            right: j ? "20px" : "auto",
+            left: O ? "auto" : "20px",
+            right: O ? "20px" : "auto",
             display: "flex",
             alignItems: "center",
             gap: "15px",
-            opacity: f ? 1 : 0,
-            pointerEvents: f ? "auto" : "none",
+            opacity: b ? 1 : 0,
+            pointerEvents: b ? "auto" : "none",
             transition: "opacity 0.3s",
             zIndex: 100
           }, children: [
-            /* @__PURE__ */ c.jsx(
+            /* @__PURE__ */ f.jsx(
               "button",
               {
-                onClick: (t) => {
-                  t.stopPropagation(), r();
+                onClick: (n) => {
+                  n.stopPropagation(), t();
                 },
                 style: {
                   background: "rgba(255,255,255,0.1)",
@@ -982,19 +1348,19 @@ function Ie() {
                   cursor: "pointer",
                   fontWeight: "bold"
                 },
-                children: P.langBtn
+                children: ee.langBtn
               }
             ),
-            /* @__PURE__ */ c.jsxs("div", { style: {
+            /* @__PURE__ */ f.jsxs("div", { style: {
               display: "flex",
               alignItems: "center",
               gap: "10px"
             }, children: [
-              /* @__PURE__ */ c.jsx(
+              /* @__PURE__ */ f.jsx(
                 "button",
                 {
-                  onClick: (t) => {
-                    t.stopPropagation(), e();
+                  onClick: (n) => {
+                    n.stopPropagation(), r();
                   },
                   style: {
                     background: "transparent",
@@ -1010,32 +1376,32 @@ function Ie() {
                     alignItems: "center",
                     justifyContent: "center"
                   },
-                  onMouseOver: (t) => {
-                    t.currentTarget.style.opacity = "0.8";
+                  onMouseOver: (n) => {
+                    n.currentTarget.style.opacity = "0.8";
                   },
-                  onMouseOut: (t) => {
-                    t.currentTarget.style.opacity = "1";
+                  onMouseOut: (n) => {
+                    n.currentTarget.style.opacity = "1";
                   },
-                  children: L === 0 ? /* @__PURE__ */ c.jsxs("svg", { xmlns: "http://www.w3.org/2000/svg", width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: [
-                    /* @__PURE__ */ c.jsx("polygon", { points: "11 5 6 9 2 9 2 15 6 15 11 19 11 5" }),
-                    /* @__PURE__ */ c.jsx("line", { x1: "23", y1: "9", x2: "17", y2: "15" }),
-                    /* @__PURE__ */ c.jsx("line", { x1: "17", y1: "9", x2: "23", y2: "15" })
-                  ] }) : /* @__PURE__ */ c.jsxs("svg", { xmlns: "http://www.w3.org/2000/svg", width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: [
-                    /* @__PURE__ */ c.jsx("polygon", { points: "11 5 6 9 2 9 2 15 6 15 11 19 11 5" }),
-                    /* @__PURE__ */ c.jsx("path", { d: "M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" })
+                  children: oe === 0 ? /* @__PURE__ */ f.jsxs("svg", { xmlns: "http://www.w3.org/2000/svg", width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: [
+                    /* @__PURE__ */ f.jsx("polygon", { points: "11 5 6 9 2 9 2 15 6 15 11 19 11 5" }),
+                    /* @__PURE__ */ f.jsx("line", { x1: "23", y1: "9", x2: "17", y2: "15" }),
+                    /* @__PURE__ */ f.jsx("line", { x1: "17", y1: "9", x2: "23", y2: "15" })
+                  ] }) : /* @__PURE__ */ f.jsxs("svg", { xmlns: "http://www.w3.org/2000/svg", width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: [
+                    /* @__PURE__ */ f.jsx("polygon", { points: "11 5 6 9 2 9 2 15 6 15 11 19 11 5" }),
+                    /* @__PURE__ */ f.jsx("path", { d: "M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" })
                   ] })
                 }
               ),
-              /* @__PURE__ */ c.jsx(
+              /* @__PURE__ */ f.jsx(
                 "input",
                 {
                   type: "range",
                   min: "0",
                   max: "1",
                   step: "0.01",
-                  value: L,
-                  onChange: n,
-                  onClick: (t) => t.stopPropagation(),
+                  value: oe,
+                  onChange: c,
+                  onClick: (n) => n.stopPropagation(),
                   style: {
                     width: "80px",
                     accentColor: "#ffd700",
@@ -1045,11 +1411,11 @@ function Ie() {
               )
             ] })
           ] }),
-          /* @__PURE__ */ c.jsxs(
+          /* @__PURE__ */ f.jsxs(
             "div",
             {
               style: {
-                transform: `scale(${l})`,
+                transform: `scale(${p})`,
                 transformOrigin: "center center",
                 transition: "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
                 width: "100%",
@@ -1062,7 +1428,7 @@ function Ie() {
                 // Space for the title
               },
               children: [
-                /* @__PURE__ */ c.jsx("div", { style: {
+                /* @__PURE__ */ f.jsx("div", { style: {
                   textAlign: "center",
                   marginBottom: "60px",
                   // Increased spacing further
@@ -1070,14 +1436,14 @@ function Ie() {
                   zIndex: 50,
                   cursor: "default",
                   userSelect: "none",
-                  opacity: f ? 1 : 0,
+                  opacity: b ? 1 : 0,
                   transition: "opacity 0.3s"
-                }, children: /* @__PURE__ */ c.jsx("h1", { className: "header-text", children: j ? "חג חנוכה שמח!" : "HAPPY HANUKKAH!" }) }),
-                /* @__PURE__ */ c.jsx("div", { style: {
+                }, children: /* @__PURE__ */ f.jsx("h1", { className: "header-text", children: O ? "חג חנוכה שמח!" : "HAPPY HANUKKAH!" }) }),
+                /* @__PURE__ */ f.jsx("div", { style: {
                   marginBottom: "20px",
-                  opacity: f ? 1 : 0,
+                  opacity: b ? 1 : 0,
                   transition: "opacity 0.3s",
-                  height: f ? "auto" : 0,
+                  height: b ? "auto" : 0,
                   display: "flex",
                   gap: "10px",
                   alignItems: "center",
@@ -1085,40 +1451,40 @@ function Ie() {
                   // Allow wrapping if needed
                   justifyContent: "center",
                   maxWidth: "90vw"
-                }, children: [1, 2, 3, 4, 5, 6, 7, 8].map((t) => /* @__PURE__ */ c.jsxs(
+                }, children: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => /* @__PURE__ */ f.jsxs(
                   "button",
                   {
-                    onClick: (a) => {
-                      a.stopPropagation(), h && z(t);
+                    onClick: (o) => {
+                      o.stopPropagation(), E && D(n);
                     },
-                    title: h ? "" : P.locked,
+                    title: E ? "" : ee.locked,
                     style: {
-                      background: x === t ? "#ffd700" : "rgba(255,255,255,0.1)",
-                      color: x === t ? "#0f2557" : "#fff",
-                      border: x === t ? "1px solid #ffd700" : "1px solid rgba(255,255,255,0.3)",
+                      background: x === n ? "#ffd700" : "rgba(255,255,255,0.1)",
+                      color: x === n ? "#0f2557" : "#fff",
+                      border: x === n ? "1px solid #ffd700" : "1px solid rgba(255,255,255,0.3)",
                       padding: "5px 15px",
                       borderRadius: "20px",
-                      cursor: h ? "pointer" : "not-allowed",
+                      cursor: E ? "pointer" : "not-allowed",
                       fontWeight: "bold",
                       transition: "all 0.2s",
                       fontSize: "14px",
                       whiteSpace: "nowrap",
-                      opacity: h || x === t ? 1 : 0.5
+                      opacity: E || x === n ? 1 : 0.5
                     },
                     children: [
-                      P.nightLabel,
+                      ee.nightLabel,
                       " ",
-                      t
+                      n
                     ]
                   },
-                  t
+                  n
                 )) }),
-                /* @__PURE__ */ c.jsx("div", { style: {
+                /* @__PURE__ */ f.jsx("div", { style: {
                   height: "30px",
                   marginBottom: "10px",
-                  opacity: f ? 1 : 0,
+                  opacity: b ? 1 : 0,
                   transition: "opacity 0.3s"
-                }, children: k && f && /* @__PURE__ */ c.jsx(
+                }, children: N && b && /* @__PURE__ */ f.jsx(
                   "div",
                   {
                     style: {
@@ -1134,19 +1500,19 @@ function Ie() {
                       animation: "fadeIn 0.3s",
                       boxShadow: "0 2px 10px rgba(0,0,0,0.3)"
                     },
-                    children: k
+                    children: N
                   }
                 ) }),
-                /* @__PURE__ */ c.jsxs("div", { style: {
+                /* @__PURE__ */ f.jsxs("div", { style: {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
                   position: "relative",
-                  marginTop: f ? 0 : "20px",
+                  marginTop: b ? 0 : "20px",
                   direction: "ltr"
                   // Always LTR for the menorah itself
                 }, children: [
-                  /* @__PURE__ */ c.jsxs(
+                  /* @__PURE__ */ f.jsxs(
                     "div",
                     {
                       style: {
@@ -1158,19 +1524,19 @@ function Ie() {
                         marginBottom: "-10px"
                       },
                       children: [
-                        /* @__PURE__ */ c.jsx(o, { id: 1 }),
-                        /* @__PURE__ */ c.jsx(o, { id: 2 }),
-                        /* @__PURE__ */ c.jsx(o, { id: 3 }),
-                        /* @__PURE__ */ c.jsx(o, { id: 4 }),
-                        /* @__PURE__ */ c.jsx(o, { id: "shamash", isShamash: !0 }),
-                        /* @__PURE__ */ c.jsx(o, { id: 5 }),
-                        /* @__PURE__ */ c.jsx(o, { id: 6 }),
-                        /* @__PURE__ */ c.jsx(o, { id: 7 }),
-                        /* @__PURE__ */ c.jsx(o, { id: 8 })
+                        /* @__PURE__ */ f.jsx(l, { id: 1 }),
+                        /* @__PURE__ */ f.jsx(l, { id: 2 }),
+                        /* @__PURE__ */ f.jsx(l, { id: 3 }),
+                        /* @__PURE__ */ f.jsx(l, { id: 4 }),
+                        /* @__PURE__ */ f.jsx(l, { id: "shamash", isShamash: !0 }),
+                        /* @__PURE__ */ f.jsx(l, { id: 5 }),
+                        /* @__PURE__ */ f.jsx(l, { id: 6 }),
+                        /* @__PURE__ */ f.jsx(l, { id: 7 }),
+                        /* @__PURE__ */ f.jsx(l, { id: 8 })
                       ]
                     }
                   ),
-                  /* @__PURE__ */ c.jsx(
+                  /* @__PURE__ */ f.jsx(
                     "div",
                     {
                       style: {
@@ -1183,32 +1549,32 @@ function Ie() {
                         zIndex: 1,
                         position: "relative"
                       },
-                      children: /* @__PURE__ */ c.jsx("div", { style: {
+                      children: /* @__PURE__ */ f.jsx("div", { style: {
                         width: "100%",
                         height: "100%",
                         display: "flex",
                         justifyContent: "space-around",
                         alignItems: "center"
-                      }, children: [...Array(9)].map((t, a) => /* @__PURE__ */ c.jsx("div", { style: {
+                      }, children: [...Array(9)].map((n, o) => /* @__PURE__ */ f.jsx("div", { style: {
                         width: "10px",
                         height: "10px",
                         background: "#b8941e",
                         borderRadius: "50%",
                         opacity: 0.5
-                      } }, a)) })
+                      } }, o)) })
                     }
                   )
                 ] }),
-                /* @__PURE__ */ c.jsx("div", { style: {
+                /* @__PURE__ */ f.jsx("div", { style: {
                   marginTop: "50px",
-                  opacity: f ? 1 : 0,
+                  opacity: b ? 1 : 0,
                   transition: "opacity 0.3s",
-                  pointerEvents: f ? "auto" : "none"
-                }, children: /* @__PURE__ */ c.jsx(
+                  pointerEvents: b ? "auto" : "none"
+                }, children: /* @__PURE__ */ f.jsx(
                   "button",
                   {
-                    onClick: (t) => {
-                      t.stopPropagation(), K();
+                    onClick: (n) => {
+                      n.stopPropagation(), ve();
                     },
                     style: {
                       background: "transparent",
@@ -1221,13 +1587,13 @@ function Ie() {
                       opacity: 0.7,
                       transition: "all 0.2s"
                     },
-                    onMouseOver: (t) => {
-                      t.currentTarget.style.opacity = 1, t.currentTarget.style.background = "rgba(255, 215, 0, 0.1)";
+                    onMouseOver: (n) => {
+                      n.currentTarget.style.opacity = 1, n.currentTarget.style.background = "rgba(255, 215, 0, 0.1)";
                     },
-                    onMouseOut: (t) => {
-                      t.currentTarget.style.opacity = 0.7, t.currentTarget.style.background = "transparent";
+                    onMouseOut: (n) => {
+                      n.currentTarget.style.opacity = 0.7, n.currentTarget.style.background = "transparent";
                     },
-                    children: P.reset
+                    children: ee.reset
                   }
                 ) })
               ]
@@ -1239,5 +1605,5 @@ function Ie() {
   ] });
 }
 export {
-  Ie as Chanukkiah
+  yr as Chanukkiah
 };
