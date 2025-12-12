@@ -1,16 +1,40 @@
-# React + Vite
+# Hanukkiah Widget
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A beautiful, interactive Hanukkiah (Menorah) widget for React applications.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Interactive Lighting:** Click candles to light them. Enforces proper lighting order (Right-to-Left).
+- **Date Awareness:** Automatically highlights the correct number of candles for the current night of Hanukkah (defaults to Night 1 or current night).
+- **Celebration Effect:** Confetti and unlocking of night selection upon completing the lighting for the day.
+- **Audio:** Plays a "Maoz Tzur" melody upon opening.
+- **Bilingual:** Supports English and Hebrew interfaces.
 
-## React Compiler
+## Installation
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install hanukkiah-widget
+```
 
-## Expanding the ESLint configuration
+## Usage
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Import the component and use it in your React application. Note that this package uses a **named export**.
+
+```jsx
+import React from 'react';
+import { Chanukkiah } from 'hanukkiah-widget';
+
+function App() {
+  return (
+    <div style={{ height: '100vh', background: '#333' }}>
+      <Chanukkiah />
+    </div>
+  );
+}
+
+export default App;
+```
+
+## Requirements
+
+- React 16.8+ (uses Hooks)

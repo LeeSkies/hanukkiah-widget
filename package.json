@@ -3,20 +3,11 @@
   "private": false,
   "version": "1.0.0",
   "type": "module",
-  "files": [
-    "dist"
-  ],
-  "main": "./dist/hanukkiah-widget.umd.js",
-  "module": "./dist/hanukkiah-widget.es.js",
-  "exports": {
-    ".": {
-      "import": "./dist/hanukkiah-widget.es.js",
-      "require": "./dist/hanukkiah-widget.umd.js"
-    }
-  },
+  "types": "./src/index.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "prepare": "npm run build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
